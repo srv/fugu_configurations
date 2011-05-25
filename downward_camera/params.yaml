@@ -12,22 +12,22 @@ auto_shutter: 1
 
 auto_white_balance: 1
 
-bayer_method: ''
+bayer_method: ""
 bayer_pattern: grbg
 brightness: 0.0
 
-camera_info_url_left: 'file:///home/user/ros/configurations/camera/calibration_left.yaml'
-camera_info_url_right: 'file:///home/user/ros/configurations/camera/calibration_right.yaml'
-color_coding: raw16
+camera_info_url_left: "package://fugu_configurations/downward_camera/calibration_left.yaml"
+camera_info_url_right: "package://fugu_configurations/downward_camera/calibration_right.yaml"
 exposure: 0.0
 
+format7_color_coding: raw16
 frame_id: stereo_camera
 frame_rate: 7.5
 frame_rate_feature: 1232.0
 gain: 0.0
 
 gamma: 2.2000000000000002
-guid: 00b09d01009b8402
+guid: 00b09d0100a8a2c7
 hue: 0.0
 iris: 8.0
 iso_speed: 400
@@ -43,7 +43,7 @@ saturation: 1.0
 sharpness: 1.0
 shutter: 1.0
 stereo_method: Interlaced
-video_mode: format7_3
+video_mode: format7_mode3
 
 white_balance_BU: 0.0
 white_balance_RV: 0.0

@@ -1,0 +1,50 @@
+auto_brightness: 1
+auto_exposure: 1
+auto_frame_rate_feature: 3
+auto_gain: 1
+auto_gamma: 1
+auto_hue: 1
+auto_iris: 1
+auto_pan: 1
+auto_saturation: 1
+auto_sharpness: 1
+auto_shutter: 1
+
+auto_white_balance: 1
+
+bayer_method: ""
+bayer_pattern: grbg
+brightness: 0.0
+
+camera_info_url_left: "package://fugu_configurations/forward_camera/calibration_left.yaml"
+camera_info_url_right: "package://fugu_configurations/forward_camera/calibration_right.yaml"
+exposure: 0.0
+
+format7_color_coding: raw16
+frame_id: stereo_camera
+frame_rate: 7.5
+frame_rate_feature: 1232.0
+gain: 0.0
+
+gamma: 2.2000000000000002
+guid: 00b09d01009b8404
+hue: 0.0
+iris: 8.0
+iso_speed: 400
+
+pan: 0.0
+reset_on_open: true
+roi_height: 768
+roi_left: 0
+roi_top: 0
+roi_width: 1024
+
+saturation: 1.0
+sharpness: 1.0
+shutter: 1.0
+stereo_method: Interlaced
+video_mode: format7_mode3
+
+white_balance_BU: 0.0
+white_balance_RV: 0.0
+

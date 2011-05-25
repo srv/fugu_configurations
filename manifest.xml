@@ -2,15 +2,11 @@
   <description brief="fugu_configurations">
 
      This package contains several configurations for the fugu robots.
-     It also contains launch files for commonly used tasks
-     (enabling sensors, visualization, recording...).
-     It does not have any dependency, although some packages may be needed by
-     some launches.
 
   </description>
   <author>Joan Pau Beltran</author>
   <license>GPL</license>
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/fugu_configurations</url>
-  
+
 </package>

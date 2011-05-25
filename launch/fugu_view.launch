@@ -1,13 +1,14 @@
 <launch>
 
+  <arg name="stereo" default="downward_stereo_camera" />
   <arg name="image" default="image_raw" />
 
   <node pkg="image_view" type="image_view" name="image_view_left" >
-    <remap from="image" to="stereo_camera/left/$(arg image)" />
+    <remap from="image" to="$(arg stereo)/left/$(arg image)" />
   </node>
 
   <node pkg="image_view" type="image_view" name="image_view_right" >
-    <remap from="image" to="stereo_camera/right/$(arg image)" />
+    <remap from="image" to="$(arg stereo)/right/$(arg image)" />
   </node>
 
 </launch>
