@@ -1,7 +1,0 @@
-<launch>
-
-  <node pkg="camera1394stereo" type="camera1394stereo_node" name="stereo_camera" output="screen" >
-    <rosparam file="$(find fugu_configurations)/camera/params.yaml" />
-  </node>
-  
-</launch>
