@@ -3,10 +3,14 @@
   <arg name="prefix" default="" />
   <node pkg="rosbag" type="rosbag" name="rosbag" 
     args="record -o '$(arg prefix)'
-      /stereo_camera/left/image_raw
-      /stereo_camera/left/camera_info
-      /stereo_camera/right/image_raw
-      /stereo_camera/right/camera_info
+      /downward_stereo_camera/left/image_raw
+      /downward_stereo_camera/left/camera_info
+      /downward_stereo_camera/right/image_raw
+      /downward_stereo_camera/right/camera_info
+      /forward_stereo_camera/left/image_raw
+      /forward_stereo_camera/left/camera_info
+      /forward_stereo_camera/right/image_raw
+      /forward_stereo_camera/right/camera_info
       $(arg topics)" 
     output="screen" />
 </launch>
