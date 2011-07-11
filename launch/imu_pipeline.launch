@@ -1,0 +1,4 @@
+<launch>
+  <include file="$(find fugu_configurations)/launch/imu.launch"/>
+  <include file="$(find fugu_configurations)/launch/imu_odometer.launch"/>
+</launch>

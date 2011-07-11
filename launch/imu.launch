@@ -1,0 +1,9 @@
+<launch>
+
+ <!-- imu_node -->
+  <node pkg="memsense_imu" type="imu_node" name="imu_node" output="screen">
+    <rosparam file="$(find fugu_configurations)/imu/params.yaml" />
+    <param name="frame_id" value="imu" />
+  </node>
+  
+</launch>
