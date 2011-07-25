@@ -1,0 +1,5 @@
+<launch>
+
+  <machine name="localhost" address="localhost" />
+
+</launch>

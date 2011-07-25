@@ -1,0 +1,7 @@
+<launch>
+
+  <machine name="fugu-c" address="fugu-c.local" user="user" 
+    ros-root="/opt/ros/diamondback/ros/" 
+    ros-package-path="/home/user/ros:/opt/ros/diamondback/stacks" />
+
+</launch>
