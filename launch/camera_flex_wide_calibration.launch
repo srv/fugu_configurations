@@ -5,10 +5,10 @@
   </node>
 
   <node pkg="camera_calibration" type="cameracalibrator.py" name="camera_calibrator" args="--size 8x6 --square=0.06" output="screen">
-	<remap from="right" to="stereo_camera/right/image_raw" />
-	<remap from="left" to="stereo_camera/left/image_raw" />
-	<remap from="right_camera" to="stereo_camera/right" />
-	<remap from="left_camera" to="stereo_camera/left" />
+    <remap from="right" to="stereo_camera/right/image_raw" />
+    <remap from="left" to="stereo_camera/left/image_raw" />
+    <remap from="right_camera" to="stereo_camera/right" />
+    <remap from="left_camera" to="stereo_camera/left" />
   </node>
   
 </launch>

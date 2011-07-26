@@ -1,0 +1,10 @@
+<launch>
+
+  <machine name="fugu-c" address="fugu-c.local" user="user" 
+           ros-root="/opt/ros/diamondback/ros/" 
+           ros-package-path="/home/user/ros:/opt/ros/diamondback/stacks" >
+    <env name="ROS_HOSTNAME" value="fugu-c.local" />
+    <env name="ROS_MASTER_URI" value="http://portatil.local:11311" />
+  </machine>
+
+</launch>

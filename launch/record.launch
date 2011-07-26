@@ -1,7 +1,7 @@
 <launch>
   <arg name="topics" default="" />
-  <arg name="prefix" default="" />
-  <node pkg="rosbag" type="rosbag" name="rosbag" 
+  <arg name="prefix" default="/media/DATA/bagfiles/" />
+  <node machine="fugu-c" pkg="rosbag" type="rosbag" name="rosbag" output="screen"
     args="record -o '$(arg prefix)'
       /downward_stereo_camera/left/image_raw
       /downward_stereo_camera/left/camera_info
@@ -11,7 +11,6 @@
       /forward_stereo_camera/left/camera_info
       /forward_stereo_camera/right/image_raw
       /forward_stereo_camera/right/camera_info
-      $(arg topics)" 
-    output="screen" />
+      $(arg topics)" />
 </launch>
 

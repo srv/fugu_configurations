@@ -1,5 +1,5 @@
 <launch>
-
+  
   <arg name="stereo" default="downward_stereo_camera" />
   <arg name="image" default="image_raw" />
 
