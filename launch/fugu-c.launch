@@ -1,7 +1,7 @@
 <launch>
   <include file="$(find fugu_configurations)/machines/fugu-c.machine"/>
-  <include file="$(find fugu_configurations)/launch/camera_comp_narrow_stereo_pipeline.launch"/>
-  <include file="$(find fugu_configurations)/launch/camera_comp_wide_stereo_pipeline.launch"/>
+  <include file="$(find fugu_configurations)/launch/downward_stereo_pipeline.launch"/>
+  <include file="$(find fugu_configurations)/launch/forward_stereo_pipeline.launch"/>
   <include file="$(find fugu_configurations)/launch/imu.launch"/>
   <include file="$(find fugu_configurations)/launch/console.launch"/>
 </launch>

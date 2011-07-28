@@ -1,9 +1,0 @@
-<launch>
-  
-  <include file="$(find fugu_configurations)/launch/camera_comp_wide.launch"/>
-  
-  <node machine="fugu-c" pkg="stereo_image_proc" type="stereo_image_proc" output="screen"
-        name="stereo_image_proc"
-        ns="downward_stereo_camera" />
-  
-</launch>

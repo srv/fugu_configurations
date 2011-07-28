@@ -1,0 +1,15 @@
+<launch>
+
+  <include file="$(find fugu_configurations)/launch/camera_comp_wide.launch" />
+
+  <include file="$(find fugu_configurations)/launch/camera_comp_narrow.launch" />
+
+  <include file="$(find fugu_configurations)/launch/stereo_view.launch">
+    <arg name="stereo" value="forward_stereo_camera" />
+  </include>
+
+  <include file="$(find fugu_configurations)/launch/stereo_view.launch"> 
+    <arg name="stereo" value="downward_stereo_camera" />
+  </include>
+
+</launch>
