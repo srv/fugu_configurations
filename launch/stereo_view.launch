@@ -1,6 +1,6 @@
 <launch>
-
-  <arg name="stereo" default="downward_stereo_camera" />
+  
+  <arg name="stereo" default="stereo_camera" />
   <arg name="image" default="image_raw" />
 
   <node pkg="image_view" type="image_view" name="$(anon image_view)" >

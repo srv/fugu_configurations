@@ -1,8 +1,9 @@
 <launch>
-
+  
   <node pkg="camera1394stereo" type="camera1394stereo_node" name="downward_stereo_camera_node" output="screen" >
-    <remap from="stereo_camera" to="downward_stereo_camera" />
     <rosparam file="$(find fugu_configurations)/camera_flex_wide/params.yaml" />
+    <param name="frame_id" value="downward_stereo_camera" />
+    <remap from="stereo_camera" to="downward_stereo_camera" />
   </node>
   
 </launch>
