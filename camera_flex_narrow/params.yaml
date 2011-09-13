@@ -15,9 +15,6 @@ bayer_method: ""
 bayer_pattern: grbg
 brightness: 0.0
 
-camera_info_url_left: "package://fugu_configurations/camera_flex_narrow/calibration_left.yaml"
-camera_info_url_right: "package://fugu_configurations/camera_flex_narrow/calibration_right.yaml"
-
 exposure: 0.0
 
 format7_color_coding: raw16

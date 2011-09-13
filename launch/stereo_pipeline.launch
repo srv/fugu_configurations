@@ -1,0 +1,12 @@
+<launch>
+    <arg name="name"/>
+    <arg name="configuration"/>
+
+    <include file="$(find fugu_configurations)/launch/camera.launch">
+        <arg name="name" value="$(arg name)" />
+        <arg name="configuration" value="$(arg configuration)" />
+    </include>
+
+    <node name="$(arg name)_stereo_image_proc" type="stereo_image_proc" pkg="stereo_image_proc"
+          ns="$(arg name)" />
+</launch>
