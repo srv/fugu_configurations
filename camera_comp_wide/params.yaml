@@ -19,9 +19,6 @@ binning_x: 0
 binning_y: 0
 brightness: 0.0
 
-camera_info_url_left: 'package://fugu_configurations/camera_comp_wide/calibration_left.yaml'
-camera_info_url_right: 'package://fugu_configurations/camera_comp_wide/calibration_right.yaml'
-
 exposure: 0.0
 
 focus: 0.0
