@@ -2,7 +2,7 @@
     <arg name="name"/>
     <arg name="configuration"/>
 
-    <include file="$(find fugu_configurations)/launch/camera.launch">
+    <include file="$(find fugu_configurations)/launch/stereo_camera.launch">
         <arg name="name" value="$(arg name)" />
         <arg name="configuration" value="$(arg configuration)" />
     </include>

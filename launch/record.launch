@@ -1,16 +1,16 @@
 <launch>
   <arg name="topics" default="" />
-  <arg name="prefix" default="/media/DATA/bagfiles/" />
+  <arg name="prefix" default="$(find bagiles)/bagfiles/" />
   <node machine="fugu-c" pkg="rosbag" type="rosbag" name="rosbag" output="screen"
     args="record -o '$(arg prefix)'
-      /wide_stereo_camera/left/image_raw
-      /wide_stereo_camera/left/camera_info
-      /wide_stereo_camera/right/image_raw
-      /wide_stereo_camera/right/camera_info
-      /narrow_stereo_camera/left/image_raw
-      /narrow_stereo_camera/left/camera_info
-      /narrow_stereo_camera/right/image_raw
-      /narrow_stereo_camera/right/camera_info
+      /camera_comp_wide/left/image_raw
+      /camera_comp_wide/left/camera_info
+      /camera_comp_wide/right/image_raw
+      /camera_comp_wide/right/camera_info
+      /camera_comp_narrow/left/image_raw
+      /camera_comp_narrow/left/camera_info
+      /camera_comp_narrow/right/image_raw
+      /camera_comp_narrow/right/camera_info
       $(arg topics)" />
 </launch>
 
