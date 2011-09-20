@@ -1,12 +1,12 @@
 <launch>
 
   <include file="$(find fugu_configurations)/launch/camera.launch" >
-    <arg name="name" value="camera_comp_narrow" />
+    <arg name="stereo" value="camera_comp_narrow" />
     <arg name="configuration" value="cilinder_air" />
   </include>
 
   <include file="$(find fugu_configurations)/launch/camera.launch" >
-    <arg name="name" value="camera_comp_wide" />
+    <arg name="stereo" value="camera_comp_wide" />
     <arg name="configuration" value="cilinder_air" />
   </include>
 

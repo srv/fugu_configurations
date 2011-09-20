@@ -1,20 +1,21 @@
 <launch>
 
-  <arg name="stereo" default="stereo_camera"/>
+  <arg name="stereo" default="stereo_camera" />
 
-  <node pkg="camera_calibration" type="cameracalibrator.py" name="camera_calibrator" args="--size 8x6 --square=0.1075" output="screen">
-    <remap from="right" to="$(arg stereo)/right/image_mono" />
+  <node pkg="camera_calibration" type="cameracalibrator.py" name="camera_calibrator" 
+        args="--size 8x6 --square=0.1075" output="screen">
     <remap from="left" to="$(arg stereo)/left/image_mono" />
-    <remap from="right_camera" to="$(arg stereo)/right" />
     <remap from="left_camera" to="$(arg stereo)/left" />
+    <remap from="right" to="$(arg stereo)/right/image_mono" />
+    <remap from="right_camera" to="$(arg stereo)/right" />
   </node>
 
   <node pkg="rosbag" type="rosbag" name="rosbag" 
-     args="record -o '$(find bagfiles)/calibration_$(arg stereo)'
-           /$(arg stereo)/left/image_raw
-           /$(arg stereo)/right/image_raw
-           /$(arg stereo)/left/camera_info
-           /$(arg stereo)/right/camera_info"
+        args="record -o '$(find bagfiles)/calibration_$(arg stereo)'
+              /$(arg stereo)/left/image_raw
+              /$(arg stereo)/right/image_raw
+              /$(arg stereo)/left/camera_info
+              /$(arg stereo)/right/camera_info"
      output="screen" />
-  
+
 </launch>
