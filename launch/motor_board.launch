@@ -1,0 +1,7 @@
+<launch>
+
+  <node pkg="albatros_motor_board" type="motor_board_node" name="motor_board_node" output="screen" >
+    <rosparam file="$(find fugu_configurations)/motor_board/params.yaml" />
+  </node>
+  
+</launch>
