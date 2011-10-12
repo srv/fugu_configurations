@@ -2,7 +2,7 @@
 
   <arg name="stereo" default="camera_flex_wide" />
 
-  <node pkg="nodelet" type="nodelet" name="vision_manager" args="manager" />
+  <node pkg="nodelet" type="nodelet" name="vision_manager" args="manager" output="screen" />
   
   <node pkg="stereo_image_proc" type="stereo_image_proc" name="stereo_image_proc" output="screen"
         ns="$(arg stereo)/scaled" />
@@ -23,11 +23,12 @@
      <remap from="camera_out" to="$(arg stereo)/scaled/right"/>
   </node>
 
-  <include file="$(find object_detection)/launch/detection_pipeline.launch">
-     <arg name="camera" value="$(arg stereo)/scaled/left" />
+  <include file="$(find object_detection)/launch/object_detector.launch">
+     <arg name="image" value="$(arg stereo)/scaled/left/image_rect_color" />
      <arg name="manager" value="vision_manager" />
-     <arg name="models" value="fdr-pool-scaled" />
-     <arg name="show_images" value="true" />
+     <arg name="models" value="target" />
+     <arg name="show_images" value="false" />
+     <arg name="standalone" value="false" />
   </include>
 
 </launch>
