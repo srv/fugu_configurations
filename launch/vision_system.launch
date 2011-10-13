@@ -3,27 +3,23 @@
   <arg name="stereo" default="camera_flex_wide" />
 
   <node pkg="nodelet" type="nodelet" name="vision_manager" args="manager" output="screen" />
+  <!--
+  <include file="$(find fugu_configurations)/launch/stereo_pipeline.launch" >
+    <arg name="stereo" value="$(arg stereo)" />
+    <arg name="manager" value="vision_manager" />
+  </include>
+  -->
+  <include file="$(find fugu_configurations)/launch/stereo_crop_decimate.launch" >
+    <arg name="stereo" value="$(arg stereo)"/>
+    <arg name="manager" value="vision_manager" />
+  </include>
   
-  <node pkg="stereo_image_proc" type="stereo_image_proc" name="stereo_image_proc" output="screen"
-        ns="$(arg stereo)/scaled" />
-  
-  <node pkg="nodelet" type="nodelet" name="scale_nodelet_left" output="screen"
-        args="load image_proc_custom/crop_decimate vision_manager" >
-     <param name="decimation_x" value="2" />
-     <param name="decimation_y" value="2" />
-     <remap from="camera" to="$(arg stereo)/left" /> 
-     <remap from="camera_out" to="$(arg stereo)/scaled/left"/>
-  </node>
+  <include file="$(find fugu_configurations)/launch/stereo_image_proc.launch" >
+    <arg name="stereo" value="$(arg stereo)/scaled" />
+    <arg name="manager" value="vision_manager" />
+  </include>
 
-  <node pkg="nodelet" type="nodelet" name="scale_nodelet_right" output="screen"
-        args="load image_proc_custom/crop_decimate vision_manager" >
-     <param name="decimation_x" value="2" />
-     <param name="decimation_y" value="2" />
-     <remap from="camera" to="$(arg stereo)/right" /> 
-     <remap from="camera_out" to="$(arg stereo)/scaled/right"/>
-  </node>
-
-  <include file="$(find object_detection)/launch/object_detector.launch">
+  <include file="$(find object_detection)/launch/object_detector.launch" >
      <arg name="image" value="$(arg stereo)/scaled/left/image_rect_color" />
      <arg name="manager" value="vision_manager" />
      <arg name="models" value="target" />

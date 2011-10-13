@@ -1,0 +1,28 @@
+<launch>
+  
+  <arg name="manager" default="manager" />
+  <arg name="standalone" default="false" />
+  
+  <!-- roslaunch ignores ROS_NAMESPACE environment variable and ns remapping -->
+  <arg name="camera" />
+  
+  <group if="$(arg standalone)" ns="$(arg camera)" >
+    <node pkg="image_proc" type="image_proc" name="image_proc" output="screen" />
+  </group>
+  
+  <group unless="$(arg standalone)" ns="$(arg camera)" >
+    <!-- Bayer color decoding -->
+    <node pkg="nodelet" type="nodelet" name="image_proc_debayer" output="screen"
+          args="load image_proc/debayer $(arg manager)" />
+    <!-- mono rectification -->
+    <node pkg="nodelet" type="nodelet" name="image_proc_rect" output="screen"
+          args="load image_proc/rectify $(arg manager)" />
+    <!-- color rectification -->
+    <node pkg="nodelet" type="nodelet" name="image_proc_rect_color" output="screen"
+          args="load image_proc/rectify $(arg manager)" >
+      <remap from="image_mono" to="image_color" />
+      <remap from="image_rect" to="image_rect_color" />
+    </node>
+  </group>
+  
+</launch>

@@ -3,12 +3,19 @@
   <arg name="stereo" />
   <arg name="configuration" />
 
+  <arg name="manager" default="manager" />
+  <arg name="standalone" default="false" />
+
   <include file="$(find fugu_configurations)/launch/stereo_camera.launch">
     <arg name="stereo" value="$(arg stereo)" />
     <arg name="configuration" value="$(arg configuration)" />
+    <arg name="standalone" value="$(arg standalone)" />
+    <arg name="manager" value="$(arg manager)" />
   </include>
 
-  <node name="$(arg stereo)_stereo_image_proc" type="stereo_image_proc" pkg="stereo_image_proc"
-        ns="$(arg stereo)" />
+  <include file="$(find fugu_configurations)/launch/stereo_image_proc.launch" ns="$(arg stereo)">
+    <arg name="standalone" value="$(arg standalone)" />
+    <arg name="manager" value="$(arg manager)" />
+  </include>
 
 </launch>
