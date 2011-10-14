@@ -35,7 +35,7 @@
       <param name="camera_info_url_right" value="file://$(find fugu_configurations)/$(arg stereo)/calibration_$(arg configuration)_right.yaml" />
       <remap from="stereo_camera" to="$(arg stereo)" />
     </node>
-  <group>
+  </group>
 
   <group unless="$(arg standalone)">
     <node pkg="nodelet" type="nodelet" name="$(arg stereo)_node" output="screen"
