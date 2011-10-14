@@ -4,7 +4,7 @@
   <arg name="standalone" default="false" />
 
   <!-- roslaunch ignores ROS_NAMESPACE environment variable and ns remapping -->
-  <arg name="stereo" default="" />
+  <arg name="stereo" />
 
   <arg name="nodelet_args" if="$(arg standalone)" value="standalone image_proc_custom/crop_decimate" />
   <arg name="nodelet_args" unless="$(arg standalone)" value="load image_proc_custom/crop_decimate $(arg manager)" />
