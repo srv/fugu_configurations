@@ -40,6 +40,7 @@
   <group unless="$(arg standalone)">
     <node pkg="nodelet" type="nodelet" name="$(arg stereo)_node" output="screen"
           args="load camera1394stereo/driver $(arg manager)">
+      <rosparam file="$(find fugu_configurations)/$(arg stereo)/params.yaml" />
       <param name="frame_id" value="$(arg stereo)" />
       <param name="camera_info_url_left" value="file://$(find fugu_configurations)/$(arg stereo)/calibration_$(arg configuration)_left.yaml" />
       <param name="camera_info_url_right" value="file://$(find fugu_configurations)/$(arg stereo)/calibration_$(arg configuration)_right.yaml" />
