@@ -1,14 +1,16 @@
 <launch>
 
   <arg name="stereo" default="camera_flex_wide" />
+  <arg name="configuration" default="boxed_water" />
 
   <node pkg="nodelet" type="nodelet" name="vision_manager" args="manager" output="screen" />
-  <!--
+
   <include file="$(find fugu_configurations)/launch/stereo_pipeline.launch" >
     <arg name="stereo" value="$(arg stereo)" />
+    <arg name="configuration" value="$(arg configuration)" />
     <arg name="manager" value="vision_manager" />
   </include>
-  -->
+
   <include file="$(find fugu_configurations)/launch/stereo_crop_decimate.launch" >
     <arg name="stereo" value="$(arg stereo)"/>
     <arg name="manager" value="vision_manager" />
@@ -19,6 +21,7 @@
     <arg name="manager" value="vision_manager" />
   </include>
 
+<!--
   <include file="$(find object_detection)/launch/object_detector.launch" >
      <arg name="image" value="$(arg stereo)/scaled/left/image_rect_color" />
      <arg name="manager" value="vision_manager" />
@@ -26,5 +29,6 @@
      <arg name="show_images" value="false" />
      <arg name="standalone" value="false" />
   </include>
+-->
 
 </launch>

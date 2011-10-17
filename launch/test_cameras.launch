@@ -1,21 +1,17 @@
 <launch>
 
-  <include file="$(find fugu_configurations)/launch/camera.launch" >
-    <arg name="stereo" value="camera_comp_narrow" />
-    <arg name="configuration" value="cilinder_air" />
+  <arg name="stereo" default="camera_flex_narrow" />
+  <arg name="configuration" default="boxed_water" />
+
+  <include file="$(find fugu_configurations)/launch/stereo_camera.launch" >
+    <arg name="stereo" value="$(arg stereo)" />
+    <arg name="configuration" value="$(arg configuration)" />
+    <arg name="standalone" value="true" />
   </include>
 
-  <include file="$(find fugu_configurations)/launch/camera.launch" >
-    <arg name="stereo" value="camera_comp_wide" />
-    <arg name="configuration" value="cilinder_air" />
-  </include>
-
-  <include file="$(find fugu_configurations)/launch/stereo_view.launch">
-    <arg name="stereo" value="camera_comp_narrow" />
-  </include>
 
   <include file="$(find fugu_configurations)/launch/stereo_view.launch"> 
-    <arg name="stereo" value="camera_comp_wide" />
+    <arg name="stereo" value="$(arg stereo)" />
   </include>
 
 </launch>
