@@ -10,19 +10,14 @@
 
   <node pkg="nodelet" type="nodelet" name="vision_manager" args="manager" output="screen" />
 
-  <include file="$(find fugu_configurations)/launch/stereo_pipeline.launch" >
+  <include file="$(find fugu_configurations)/launch/stereo_camera.launch">
     <arg name="stereo" value="$(arg stereo)" />
     <arg name="configuration" value="$(arg configuration)" />
     <arg name="manager" value="/vision_manager" />
   </include>
-
-  <include file="$(find fugu_configurations)/launch/stereo_crop_decimate.launch" >
-    <arg name="stereo" value="$(arg stereo)"/>
-    <arg name="manager" value="/vision_manager" />
-  </include>
-  
-  <include file="$(find fugu_configurations)/launch/stereo_image_proc.launch" >
-    <arg name="stereo" value="$(arg stereo)/scaled" />
+ 
+  <include file="$(find fugu_configurations)/launch/stereo_pipeline.launch" >
+    <arg name="stereo" value="$(arg stereo)" />
     <arg name="manager" value="/vision_manager" />
   </include>
 
