@@ -1,0 +1,16 @@
+<launch>
+  <arg name="topics" default="" />
+  <arg name="prefix" />
+  <node pkg="rosbag" type="rosbag" name="rosbag" output="screen"
+    args="record -o '$(find bagfiles)/fall-school/$(arg prefix)'
+      /camera_flex_wide/left/image_raw
+      /camera_flex_wide/left/camera_info
+      /camera_flex_wide/right/image_raw
+      /camera_flex_wide/right/camera_info
+      /navigator_data
+      /arm5e/manipulation/state
+      /arm5e/joint_state_angle
+      /object_detector/detections
+      $(arg topics)" />
+</launch>
+

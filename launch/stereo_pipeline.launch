@@ -1,19 +1,24 @@
 <launch>
 
   <arg name="stereo" />
-  <arg name="configuration" />
 
   <arg name="manager" default="manager" />
   <arg name="standalone" default="false" />
 
-  <include file="$(find fugu_configurations)/launch/stereo_camera.launch">
+  <include file="$(find fugu_configurations)/launch/stereo_image_proc.launch" >
     <arg name="stereo" value="$(arg stereo)" />
-    <arg name="configuration" value="$(arg configuration)" />
     <arg name="standalone" value="$(arg standalone)" />
     <arg name="manager" value="$(arg manager)" />
   </include>
 
-  <include file="$(find fugu_configurations)/launch/stereo_image_proc.launch" ns="$(arg stereo)">
+  <include file="$(find fugu_configurations)/launch/stereo_crop_decimate.launch" >
+    <arg name="stereo" value="$(arg stereo)" />
+    <arg name="standalone" value="$(arg standalone)" />
+    <arg name="manager" value="$(arg manager)" />
+  </include>
+
+  <include file="$(find fugu_configurations)/launch/stereo_image_proc.launch" >
+    <arg name="stereo" value="$(arg stereo)/scaled" />
     <arg name="standalone" value="$(arg standalone)" />
     <arg name="manager" value="$(arg manager)" />
   </include>

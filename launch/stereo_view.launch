@@ -4,12 +4,12 @@
   <arg name="image" default="image_raw" />
   <arg name="format" default="ppm" />
 
-  <node pkg="image_view" type="image_view" name="$(arg stereo)_left_image_view" >
+  <node pkg="image_view" type="image_view" name="image_view_left" >
     <remap from="image" to="$(arg stereo)/left/$(arg image)" />
     <param name="filename_format" value="$(arg stereo)_left_$(arg image)_%06i.$(arg format)"/>
   </node>
 
-  <node pkg="image_view" type="image_view" name="$(arg stereo)_right_image_view" >
+  <node pkg="image_view" type="image_view" name="image_view_right" >
     <remap from="image" to="$(arg stereo)/right/$(arg image)" />
     <param name="filename_format" value="$(arg stereo)_right_$(arg image)_%06i.$(arg format)"/>
   </node>
