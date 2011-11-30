@@ -9,7 +9,7 @@
   <arg name="image" default="image_rect" />
   <arg name="format" default="pgm" />
 
-  <node pkg="camera_calibration_fixed" type="cameracheck.py" name="camera_checker" args="--size 8x6 --square=0.1075" output="screen">
+  <node pkg="camera_calibration_fixed" type="cameracheck.py" name="camera_checker" args="--size 9x6 --square=0.04" output="screen">
     <remap from="stereo" to="$(arg stereo)" />
     <remap from="image" to="$(arg image)" />
   </node>
@@ -33,10 +33,10 @@
     <remap from="image" to="$(arg stereo)/right/$(arg image)" />
   </node>
 -->
-
+<!--
   <node name="$(arg stereo)_stereo_image_proc" type="stereo_image_proc" pkg="stereo_image_proc"
         ns="$(arg stereo)" />
-
+-->
   <node pkg="image_view" type="image_view" name="$(arg stereo)_left_image_view" >
     <remap from="image" to="$(arg stereo)/left/$(arg image)" />
     <param name="filename_format" value="left%04i.$(arg format)"/>

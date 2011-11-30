@@ -1,14 +1,15 @@
 <launch>
   
   <arg name="image" default="image_raw" />
+  <arg name="fugu" default="comp" />
 
   <include file="$(find fugu_configurations)/launch/stereo_view.launch">
-    <arg name="stereo" value="camera_flex_narrow" />
+    <arg name="stereo" value="camera_$(arg fugu)_narrow" />
     <arg name="image" value="$(arg image)" />
   </include>
   
   <include file="$(find fugu_configurations)/launch/stereo_view.launch">
-    <arg name="stereo" value="camera_flex_wide" />
+    <arg name="stereo" value="camera_$(arg fugu)_wide" />
     <arg name="image" value="$(arg image)" />
   </include>
   

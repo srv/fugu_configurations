@@ -1,7 +1,32 @@
 <launch>
-  <include file="$(find fugu_configurations)/machines/fugu-c.machine"/>
-  <include file="$(find fugu_configurations)/launch/wide_stereo_pipeline.launch"/>
-  <include file="$(find fugu_configurations)/launch/narrow_stereo_pipeline.launch"/>
+  <node pkg="nodelet" type="nodelet" name="vision_manager" args="manager" output="screen" />
+
+  <include file="$(find fugu_configurations)/launch/stereo_camera.launch">
+    <arg name="stereo" value="camera_comp_narrow" />
+    <arg name="configuration" value="cylinder_air" />
+    <!-- arg name="manager" value="/vision_manager" /-->
+    <arg name="standalone" value="true" />
+  </include>
+  <include file="$(find fugu_configurations)/launch/stereo_pipeline.launch">
+    <arg name="stereo" value="camera_comp_narrow" />
+    <!-- arg name="manager" value="/vision_manager" /-->
+    <arg name="standalone" value="true" />
+  </include>
+
+  <include file="$(find fugu_configurations)/launch/stereo_camera.launch">
+    <arg name="stereo" value="camera_comp_wide" />
+    <arg name="configuration" value="cylinder_air" />
+    <!-- arg name="manager" value="/vision_manager" /-->
+    <arg name="standalone" value="true" />
+  </include>
+  <include file="$(find fugu_configurations)/launch/stereo_pipeline.launch">
+    <arg name="stereo" value="camera_comp_wide" />
+    <!-- arg name="manager" value="/vision_manager" /-->
+    <arg name="standalone" value="true" />
+  </include>
+
+  <include file="$(find fugu_configurations)/launch/motor_board.launch"/>
+
   <include file="$(find fugu_configurations)/launch/imu.launch"/>
-  <include file="$(find fugu_configurations)/launch/console.launch"/>
+
 </launch>
