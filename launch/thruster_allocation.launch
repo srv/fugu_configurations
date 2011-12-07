@@ -1,0 +1,10 @@
+<launch>
+
+  <node pkg="thruster_allocation" type="thruster_allocation_node" name="thruster_allocation_node" output="screen" >
+    <param name="name" value="fugu_comp_2fw_2dw" />
+    <param name="tam_info_url" value="package://fugu_configurations/thruster_allocation/tam_info.yaml" />
+    <remap from="set_info" to="set_tam_info" />
+    <remap from="motor_levels" to="motor_board/speeds_pc" />
+  </node>
+
+</launch>

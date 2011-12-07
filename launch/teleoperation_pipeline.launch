@@ -1,14 +1,17 @@
 <launch>
 
   <!-- joy node -->
-  <node machine="station" pkg="joy" type="joy_node" name="joy_node" output="screen">
+  <node pkg="joy" type="joy_node" name="joy_node" output="screen">
     <rosparam file="$(find fugu_configurations)/joystick/params.yaml" />
   </node>
-
-  <!-- fugu_teleop_joy -->
-  <node machine="station" pkg="fugu_teleoperation" type="fugu_teleop_joy_node" 
-        name="fugu_teleop_joy_node" output="screen">
-    <rosparam file="$(find fugu_configurations)/teleoperation/params.yaml" />
+  
+  <!-- teleoperation_joy node -->
+  <node pkg="fugu_teleoperation" type="fugu_teleop_joy_node" name="fugu_teleop_joy_node" output="screen">
+    <rosparam file="$(find fugu_configurations)/teleoperation_joy/params.yaml" />
+    <rosparam param="motor_policy"  file="$(find fugu_configurations)/teleoperation_joy/motor_policy_params.yaml" />
+    <rosparam param="wrench_policy" file="$(find fugu_configurations)/teleoperation_joy/wrench_policy_params.yaml" />
+    <rosparam param="twist_policy"  file="$(find fugu_configurations)/teleoperation_joy/twist_policy_params.yaml" />
+    <remap from="motor_levels" to="motor_board/speeds_pc" />
   </node>
 
 </launch>
