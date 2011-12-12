@@ -1,8 +1,21 @@
 <launch>
 
-  <node pkg="memsense_imu" type="imu_node" name="imu_node" output="screen">
-    <rosparam file="$(find fugu_configurations)/imu/params.yaml" />
-    <param name="frame_id" value="imu" />
-  </node>
+  <arg name="manager" default="manager" />
+  <arg name="standalone" default="false" />
+
+  <group if="$(arg standalone)">
+    <node pkg="memsense_imu" type="imu_node" name="imu_node" output="screen">
+      <rosparam file="$(find fugu_configurations)/imu/params.yaml" />
+      <param name="frame_id" value="imu" />
+    </node>
+  </group>
+
+  <group unless="$(arg standalone)">
+    <node pkg="nodelet" type="nodelet" name="imu_node" output="screen"
+          args="load memsense_imu/imu_nodelet $(arg manager)" >
+      <rosparam file="$(find fugu_configurations)/imu/params.yaml" />
+      <param name="frame_id" value="imu" />
+    </node>
+  </group>
   
 </launch>

@@ -1,7 +1,19 @@
 <launch>
 
-  <node pkg="albatros_motor_board" type="motor_board_node" name="motor_board_node" output="screen" >
-    <rosparam file="$(find fugu_configurations)/motor_board/params.yaml" />
-  </node>
-  
+  <arg name="manager" default="manager" />
+  <arg name="standalone" default="false" />
+
+  <group if="$(arg standalone)">
+    <node pkg="albatros_motor_board" type="motor_board_node" name="motor_board_node" output="screen" >
+      <rosparam file="$(find fugu_configurations)/motor_board/params.yaml" />
+    </node>
+  </group>
+
+  <group unless="$(arg standalone)">
+    <node pkg="nodelet" type="nodelet" name="motor_board_node" output="screen"
+          args="load albatros_motor_board/motor_board_nodelet $(arg manager)" >
+      <rosparam file="$(find fugu_configurations)/motor_board/params.yaml" />
+    </node>
+  </group>
+
 </launch>
