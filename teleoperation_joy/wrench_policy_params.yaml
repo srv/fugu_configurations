@@ -1,23 +1,23 @@
 frame_id: ""
 
-lin_x_step: 10.0
-lin_x_factor: 7500.0
+lin_x_step: 0.1
+lin_x_factor: 0.75
 
 lin_y_step: 0.0
 lin_y_factor: 0.0
 
-lin_z_step: 10.0
-lin_z_factor: 7500.0
+lin_z_step: 0.1
+lin_z_factor: 0.75
 
 
-ang_x_step: 10.0
-ang_x_factor: -7500.0
+ang_x_step: 0.1
+ang_x_factor: -0.75
 
 ang_y_step: 0.0
 ang_y_factor: 0.0
 
-ang_z_step: 10.0
-ang_z_factor: -7500.0
+ang_z_step: 0.1
+ang_z_factor: -0.75
 
 
 pause_bttn: 3
