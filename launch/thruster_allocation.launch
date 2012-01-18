@@ -13,7 +13,7 @@
   </group>
 
   <group unless="$(arg standalone)">
-    <node pkg="nodelet" type="nodelet" name="motor_board_node" output="screen"
+    <node pkg="nodelet" type="nodelet" name="thruster_allocation_node" output="screen"
           args="load thruster_allocation/thruster_allocation_nodelet $(arg manager)" >
       <param name="name" value="fugu_comp_standard" />
       <param name="tam_info_url" value="package://fugu_configurations/thruster_allocation/tam_info.yaml" />
