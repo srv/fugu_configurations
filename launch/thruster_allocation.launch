@@ -11,6 +11,7 @@
       <remap from="motor_levels" to="motor_board/speeds_pc" />
     </node>
   </group>
+  <!-- nodelet implica la seva execució en el mateix PC, standalone val false, necessita un manager dins el mateix PC -->
   <group unless="$(arg standalone)"> 
   <group unless="$(arg standalone)">
     <node pkg="nodelet" type="nodelet" name="thruster_allocation_node" output="screen"
@@ -24,4 +25,4 @@
 
 </launch>
 
-<!-- nodelet implica la seva execució en el mateix PC, standalone val false, necessita un manager dins el mateix PC -->
+
