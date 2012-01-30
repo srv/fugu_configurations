@@ -24,4 +24,4 @@
 
 </launch>
 
-<!-- nodelet: execució en el mateix PC, standalone = false, necessita un manager dins el mateix PC -->
+<!-- nodelet implica la seva execució en el mateix PC, standalone val false, necessita un manager dins el mateix PC -->
