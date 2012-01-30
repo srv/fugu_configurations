@@ -6,6 +6,7 @@
   <group if="$(arg standalone)"> -->
 
     <node pkg="depth" type="depth" name="depth" output="screen">
+	<remap from ="pressure" to = "/motor_board/pressure"/>
     </node>
 <!--  </group> -->  
 </launch>
