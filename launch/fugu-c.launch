@@ -29,6 +29,10 @@
     <arg name="standalone" value="true" /> 
   </include>
 
+  <include file="$(find fugu_configurations)/launch/depth.launch" >
+   <!-- <arg name="standalone" value="true" /> --> 
+  </include>
+
   <include file="$(find fugu_configurations)/launch/imu.launch" >
     <arg name="standalone" value="true" /> 
   </include>

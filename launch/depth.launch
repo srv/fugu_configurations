@@ -1,0 +1,11 @@
+<launch>
+
+ <!-- <arg name="manager" default="manager" />
+  <arg name="standalone" default="false" /> 
+
+  <group if="$(arg standalone)"> -->
+
+    <node pkg="depth" type="depth" name="depth" output="screen">
+    </node>
+<!--  </group> -->  
+</launch>

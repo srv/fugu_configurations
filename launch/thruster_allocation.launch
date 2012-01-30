@@ -3,7 +3,7 @@
   <arg name="manager" default="manager" />
   <arg name="standalone" default="false" />
 
-  <group if="$(arg standalone)">
+  <group if="$(arg standalone)"> <!-- node tot sol, va contra un servidor>
     <node pkg="thruster_allocation" type="thruster_allocation_node" name="thruster_allocation_node" output="screen" >
       <param name="name" value="fugu_comp_standard" />
       <param name="tam_info_url" value="package://fugu_configurations/thruster_allocation/tam_info.yaml" />
@@ -12,8 +12,8 @@
     </node>
   </group>
 
-  <group unless="$(arg standalone)">
-    <node pkg="nodelet" type="nodelet" name="motor_board_node" output="screen"
+  <group unless="$(arg standalone)"> <!-- execució en el mateix PC, standalone = false, necessita un manager dins el mateix PC -->
+    <node pkg="nodelet" type="nodelet" name="thruster_allocation_node" output="screen"
           args="load thruster_allocation/thruster_allocation_nodelet $(arg manager)" >
       <param name="name" value="fugu_comp_standard" />
       <param name="tam_info_url" value="package://fugu_configurations/thruster_allocation/tam_info.yaml" />
