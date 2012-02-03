@@ -25,6 +25,16 @@
     <arg name="standalone" value="true" />
   </include>
 
+<!--view a pair of stereo images -->
+  <include file="$(find fugu_configurations)/launch/stereo_view.launch" >
+    <arg name="image" value="image_raw" />  
+    <arg name="stereo" value="camera_comp_narrow" /> 
+  </include>
+  <include file="$(find fugu_configurations)/launch/stereo_view.launch" >
+    <arg name="image" value="image_raw" />  
+    <arg name="stereo" value="camera_comp_wide" /> 
+  </include>
+
   <include file="$(find fugu_configurations)/launch/motor_board.launch" >
     <arg name="standalone" value="true" /> 
   </include>
