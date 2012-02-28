@@ -4,6 +4,7 @@
   <arg name="standalone" default="false" />
   <arg name="image"      default="camera_comp_wide/left/image_rect" />
 
+
   <arg name="nodelet_args"     if="$(arg standalone)" value="standalone visual_odometry/visual_odometer" />
   <arg name="nodelet_args" unless="$(arg standalone)" value="load       visual_odometry/visual_odometer $(arg manager)" />
 
