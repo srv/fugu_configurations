@@ -1,14 +1,14 @@
 <launch>
 
-  <arg name="manager"    default="visual_odometer_manager" />
-  <arg name="standalone" default="false" />
-  <arg name="image"      default="camera_flex_wide/left/image_rect" />
+  <arg name="manager"       default="visual_odometer_manager" />
+  <arg name="standalone"    default="false" />
+  <arg name="image"         default="camera_comp_wide/left/image_rect" />
 
   <arg name="nodelet_args"     if="$(arg standalone)" value="standalone visual_odometry/visual_odometer" />
   <arg name="nodelet_args" unless="$(arg standalone)" value="load       visual_odometry/visual_odometer $(arg manager)" />
 
   <node name="visual_odometer" pkg="nodelet" type="nodelet" output="screen" args="$(arg nodelet_args)" > 
-    <rosparam file="$(find odometry)/cfg/surf_params.yaml" />
+    <rosparam file="$(find visual_odometry)/cfg/surf_params.yaml" />
     <param name="verbosity"           value="0"          type="int" />
     <param name="debug_level"         value="0"          type="int" />
     <param name="data_save"           value="false"      type="bool" />
@@ -16,6 +16,7 @@
     <param name="visual_output"       value="0"          type="int" />
     <param name="record_video"        value="false"      type="bool" />
     <param name="image_rectified"     value="true"       type="bool" />
+    <param name="stereo"              value="false"      type="bool" />
     <remap from="image" to="$(arg image)" /> 
 <!--    <remap from="image" to="arm5e/image_rect_color" />-->
 <!--    <remap from="image" to="camera_flex_wide/left/image_rect"" />-->
