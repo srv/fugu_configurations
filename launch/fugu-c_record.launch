@@ -1,0 +1,26 @@
+<launch>
+  <arg name="topics" default="" />
+  <arg name="prefix" />
+  <node pkg="rosbag" type="rosbag" name="rosbag" output="screen"
+    args="record --split --size=1000 -o '$(arg prefix)'
+      /camera_comp_wide/left/image_raw
+      /camera_comp_wide/left/camera_info
+      /camera_comp_wide/right/image_raw
+      /camera_comp_wide/right/camera_info
+      /camera_comp_narrow/left/image_raw
+      /camera_comp_narrow/left/camera_info
+      /camera_comp_narrow/right/image_raw
+      /camera_comp_narrow/right/camera_info
+      /motor_board/pressure
+      /imu/data
+      /imu/data_calibrated
+      /imu/data_filtered
+      /imu/data_filtered_calibrated
+      /imu/mag
+      /imu/mag_calibrated
+      /imu/mag_filtered
+      /imu/mag_filtered_calibrated
+      /depth
+      $(arg topics)" />
+</launch>
+
