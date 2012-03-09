@@ -1,6 +1,7 @@
 rate_speeds: 10.0
 rate_status: 1.0
 rate_pressure: 10.0
+rate_humidity: 10.0
 
 serial_port: /dev/ttyS0
 
