@@ -1,0 +1,15 @@
+<arg name="stereo" default="stereo_camera" />
+<arg name="image" default="image_rect" />
+
+<!-- stereo ha de ser camera_comp_wide -->
+<launch>
+    <node pkg="srv_vision" type="stereo_odometer" name="stereo_odometer_viso2" output="screen" >
+      <param name="params" value="package://fugu_configurations/viso2/params_stereo.yaml" />
+      <remap from="image" to="$(arg stereo)/left/image_rect" />
+      <remap from="image" to="$(arg stereo)/right/image_rect" />
+    </node>
+</launch>
+
+
+
+
