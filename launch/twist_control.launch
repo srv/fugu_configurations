@@ -1,0 +1,17 @@
+<launch>
+
+  <arg name="twist_levels" default="twist_levels" />
+  <arg name="wrench_levels" default="wrench_levels" />
+  <arg name="odometry" default="odometry" />
+
+  <node pkg="twist_control" type="twist_control_node" name="twist_control_node" output="screen" >
+    <param name="pid_name" value="twist_PID_test" />
+    <param name="pid_info_url" value="$(find fugu_configurations)/twist_control/twist_PID_test.yaml" />
+    <param name="pid_response_hz" value="10.0" />
+    <remap from="set_info" to="set_twist_pid_info" />
+    <remap from="twist_levels" to="$(arg twist_levels)" />
+    <remap from="wrench_levels" to="$(arg wrench_levels)" />
+    <remap from="odometry" to="$(arg odometry)" />
+  </node>
+
+</launch>
