@@ -1,4 +1,7 @@
- <!-- to activate and run the motors -->
+<launch>
+  <node pkg="nodelet" type="nodelet" name="navigation_manager" args="manager" output="screen" /> 
+
+<!-- to activate and run the motors -->
   <include file="$(find fugu_configurations)/launch/motor_board.launch" >
     <arg name="standalone" value="true" /> 
   </include>
@@ -21,19 +24,10 @@
     <arg name="wrench_levels" value="wrench_levels" />
     <arg name="odometry" value="stereo_odometer_viso2/odometry" />
   </include>
-  
- <!-- added to include the coordinate transform from the camera system to the robot system 
- the odometry data provided by the viso2_ros node is refered to the camera frame, but it as to be 
-   composed with the camera relative pose with respect to the robot center to obtain the odometry of the robot. --> 	
-    <launch>
-   <node pkg="tf" type="static_transform_publisher" name="coordinate_transformation" args="0 0 -0.1 -1.57 3.1416 0 base_link camera_comp_wide 10" />
-   </launch>
 
   <include file="$(find fugu_configurations)/launch/viso2_stereo.launch" >
     <arg name="image" value="image_rect" />  
     <arg name="stereo" value="camera_comp_wide" /> 
   </include>
-
-
 
 </launch>
