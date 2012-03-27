@@ -18,7 +18,7 @@
   <include file="$(find fugu_configurations)/launch/twist_control.launch" >
     <arg name="twist_levels" value="twist_levels" />
     <arg name="wrench_levels" value="wrench_levels" />
-    <arg name="odometry" value="viso2_stereo_odometry" />
+    <arg name="odometry" value="stereo_odometer_viso2/odometry" />
   </include>
   <!-- added to include the coordinate transform from the camera system to the robot system 
  the odometry data provided by the viso2_ros node is refered to the camera frame, but it as to be 
