@@ -11,13 +11,11 @@
 <!-- stereo has to be the camera_comp_wide -->
 
     <node pkg="viso2_ros" type="stereo_odometer" name="stereo_odometer_viso2" output="screen" >
-      <param name="params" value="package://fugu_configurations/viso2/params_stereo.yaml" />
+      <rosparam file="$(find fugu_configurations)/viso2/params_stereo.yaml" />
       <remap from="image" to="$(arg image)" />
       <remap from="stereo" to="$(arg stereo)" />
     </node>
 
 </launch>
-
-
 
 

@@ -15,5 +15,5 @@ max_features :
 bucket_width :
 bucket_height :
 
-
-
+queue_size: 10
+approximate_sync:true
