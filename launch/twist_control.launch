@@ -14,5 +14,5 @@
     <remap from="odometry" to="$(arg odometry)" />
   </node>
 
-  rostopic pub -r 10 /twist_levels control_common/TwistLevelsStamped  '{linear:  {x: 1.0, y: 0.0, z: 0.0}, angular: {x: 0.0,y: 0.0,z: 0.0}}'
+  rostopic pub -r 10 /twist_levels geometry_msgs/TwistStamped '[0, now, base_link]' '{linear: [1.10, 0.00, 0.00], angular: [0.00, 0.00, 0.00]}'
 </launch>
