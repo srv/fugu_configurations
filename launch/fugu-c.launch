@@ -1,73 +1,7 @@
 <launch>
-  <node pkg="nodelet" type="nodelet" name="vision_manager" args="manager" output="screen" />
-
-  <include file="$(find fugu_configurations)/launch/stereo_camera.launch">
-    <arg name="stereo" value="camera_comp_narrow" />
-    <arg name="configuration" value="cylinder_air" />
-    <!-- arg name="manager" value="/vision_manager" /-->
-    <arg name="standalone" value="true" />
+ 
+  <include file="$(find fugu_configurations)/launch/fugu-c-vision.launch">
   </include>
-  <include file="$(find fugu_configurations)/launch/stereo_pipeline.launch">
-    <arg name="stereo" value="camera_comp_narrow" />
-    <!-- arg name="manager" value="/vision_manager" /-->
-    <arg name="standalone" value="true" />
+  <include file="$(find fugu_configurations)/launch/fugu-c-navigation.launch">
   </include>
-
-  <include file="$(find fugu_configurations)/launch/stereo_camera.launch">
-    <arg name="stereo" value="camera_comp_wide" />
-    <arg name="configuration" value="cylinder_air" />
-    <!-- arg name="manager" value="/vision_manager" /-->
-    <arg name="standalone" value="true" />
-  </include>
-  <include file="$(find fugu_configurations)/launch/stereo_pipeline.launch">
-    <arg name="stereo" value="camera_comp_wide" />
-    <!-- arg name="manager" value="/vision_manager" /-->
-    <arg name="standalone" value="true" />
-  </include>
-
-<!--view a pair of stereo images -->
-  <include file="$(find fugu_configurations)/launch/stereo_view.launch" >
-    <arg name="image" value="image_raw" />  
-    <arg name="stereo" value="camera_comp_narrow" /> 
-  </include>
-  <include file="$(find fugu_configurations)/launch/stereo_view.launch" >
-    <arg name="image" value="image_raw" />  
-    <arg name="stereo" value="camera_comp_wide" /> 
-  </include>
- <!-- to activate and run the motors -->
-  <include file="$(find fugu_configurations)/launch/motor_board.launch" >
-    <arg name="standalone" value="true" /> 
-  </include>
-
-  <include file="$(find fugu_configurations)/launch/depth.launch" >
-   <!-- <arg name="standalone" value="true" /> --> 
-  </include>
-
-  <include file="$(find fugu_configurations)/launch/imu.launch" >
-    <arg name="standalone" value="true" /> 
-  </include>
- <!-- to convert wrench levels into motor_levels -->
-  <include file="$(find fugu_configurations)/launch/thruster_allocation.launch" >
-    <arg name="standalone" value="true" /> 
-  </include>
-  <!-- added to include the autonomous control motion with a PID -->
-  <include file="$(find fugu_configurations)/launch/twist_control.launch" >
-    <arg name="twist_levels" value="twist_levels" />
-    <arg name="wrench_levels" value="wrench_levels" />
-    <arg name="odometry" value="viso2_stereo_odometry" />
-  </include>
-  <!-- added to include the coordinate transform from the camera system to the robot system 
- the odometry data provided by the viso2_ros node is refered to the camera frame, but it as to be 
-   composed with the camera relative pose with respect to the robot center to obtain the odometry of the robot. --> 	
-  <launch>
-   <node pkg="tf" type="static_transform_publisher" name="coordinate_transformation" args="0 0 -0.1 -1.57 3.1416 0 base_link camera_comp_wide 10" />
-   </launch>
-
-  <include file="$(find fugu_configurations)/launch/viso2_stereo.launch" >
-    <arg name="image" value="image_rect" />  
-    <arg name="stereo" value="camera_comp_wide" /> 
-  </include>
-
-
-
 </launch>

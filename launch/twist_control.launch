@@ -13,6 +13,4 @@
     <remap from="wrench_levels" to="$(arg wrench_levels)" />
     <remap from="odometry" to="$(arg odometry)" />
   </node>
-
-  rostopic pub -r 10 /twist_levels geometry_msgs/TwistStamped '[0, now, base_link]' '{linear: [1.10, 0.00, 0.00], angular: [0.00, 0.00, 0.00]}'
 </launch>
