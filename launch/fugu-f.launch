@@ -41,13 +41,10 @@
   </include>
 
    <include file="$(find fugu_configurations)/launch/depth.launch" > 
-   <!-- <arg name="standalone" value="true" /> --> 
   </include> 
 
   <include file="$(find fugu_configurations)/launch/alarm.launch" >
-   <!-- <arg name="standalone" value="true" /> --> 
   </include> 
-
 
  <!-- <include file="$(find fugu_configurations)/launch/thruster_allocation.launch" >
     <arg name="standalone" value="true" /> 
