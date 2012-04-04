@@ -1,0 +1,21 @@
+<launch>
+
+<arg name="stereo" default="stereo_camera" />
+<arg name="image" default="image_rect" />
+
+ <!-- added to include the coordinate transform from the camera system to the robot system 
+ the odometry data provided by the viso2_ros node is refered to the camera frame, but it as to be 
+   composed with the camera relative pose with respect to the robot center to obtain the odometry of the robot. --> 
+  <node pkg="tf" type="static_transform_publisher" name="coordinate_transformation" args="0 0 -0.1 -1.57 3.1416 0 base_link camera_comp_wide 10" />
+
+<!-- stereo has to be the camera_comp_wide -->
+
+    <node pkg="viso2_ros" type="stereo_odometer" name="stereo_odometer_viso2" output="screen" >
+      <rosparam file="$(find fugu_configurations)/viso2/params_stereo.yaml" />
+      <remap from="image" to="$(arg image)" />
+      <remap from="stereo" to="$(arg stereo)" />
+    </node>
+
+</launch>
+
+

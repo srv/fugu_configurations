@@ -21,6 +21,10 @@
       /imu/mag_filtered
       /imu/mag_filtered_calibrated
       /depth
+<<<<<<< HEAD
+=======
+      /motor_board/humidity	
+>>>>>>> 4a77c54c264ef307cc1fe730347bc45ec47a9992
       $(arg topics)" />
 </launch>
 

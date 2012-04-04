@@ -1,0 +1,33 @@
+<launch>
+  <node pkg="nodelet" type="nodelet" name="navigation_manager" args="manager" output="screen" /> 
+
+<!-- to activate and run the motors -->
+  <include file="$(find fugu_configurations)/launch/motor_board.launch" >
+    <arg name="standalone" value="true" /> 
+  </include>
+
+  <include file="$(find fugu_configurations)/launch/depth.launch" >
+  </include>
+
+  <include file="$(find fugu_configurations)/launch/imu.launch" >
+    <arg name="standalone" value="true" /> 
+  </include>
+ 
+  <!-- to convert wrench levels into motor_levels -->
+  <include file="$(find fugu_configurations)/launch/thruster_allocation.launch" >
+    <arg name="standalone" value="true" /> 
+  </include>
+  
+  <!-- added to include the autonomous control motion with a PID -->
+  <include file="$(find fugu_configurations)/launch/twist_control.launch" >
+    <arg name="twist_levels" value="twist_levels" />
+    <arg name="wrench_levels" value="wrench_levels" />
+    <arg name="odometry" value="stereo_odometer_viso2/odometry" />
+  </include>
+
+  <include file="$(find fugu_configurations)/launch/viso2_stereo.launch" >
+    <arg name="image" value="image_rect" />  
+    <arg name="stereo" value="camera_comp_wide" /> 
+  </include>
+
+</launch>

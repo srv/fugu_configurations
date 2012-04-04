@@ -35,7 +35,7 @@
     <arg name="image" value="image_raw" />  
     <arg name="stereo" value="camera_flex_narrow" /> 
   </include> 
-
+<!-- activate motor board to read the pressure and humidity sensors data -->
   <include file="$(find fugu_configurations)/launch/motor_board.launch" >
     <arg name="standalone" value="true" />  
   </include>
@@ -45,6 +45,14 @@
 
   <include file="$(find fugu_configurations)/launch/alarm.launch" >
   </include> 
+
+
+
+  <include file="$(find fugu_configurations)/launch/viso2_stereo.launch" >
+    <arg name="image" value="image_rect" />  
+    <arg name="stereo" value="camera_comp_wide" /> 
+  </include>
+
 
  <!-- <include file="$(find fugu_configurations)/launch/thruster_allocation.launch" >
     <arg name="standalone" value="true" /> 
