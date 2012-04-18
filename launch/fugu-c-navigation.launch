@@ -1,5 +1,4 @@
 <launch>
-  <node pkg="nodelet" type="nodelet" name="navigation_manager" args="manager" output="screen" /> 
 
 <!-- to activate and run the motors -->
   <include file="$(find fugu_configurations)/launch/motor_board.launch" >
