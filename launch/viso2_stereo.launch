@@ -6,7 +6,7 @@
  <!-- added to include the coordinate transform from the camera system to the robot system 
  the odometry data provided by the viso2_ros node is refered to the camera frame, but it as to be 
    composed with the camera relative pose with respect to the robot center to obtain the odometry of the robot. --> 
-  <node pkg="tf" type="static_transform_publisher" name="coordinate_transformation" args="0 0 -0.1 -1.57 3.1416 0 base_link camera_comp_wide 10" />
+  <node pkg="tf" type="static_transform_publisher" name="coordinate_transformation" args="0 0 -0.1 -1.57 3.1416 0 base_link stereo_down 10" />
 
 <!-- stereo has to be the camera_comp_wide -->
 
