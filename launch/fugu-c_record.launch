@@ -3,14 +3,10 @@
   <arg name="prefix" />
   <node pkg="rosbag" type="rosbag" name="rosbag" output="screen"
     args="record --split --size=1000 -o '$(arg prefix)'
-      /camera_comp_wide/left/image_raw
-      /camera_comp_wide/left/camera_info
-      /camera_comp_wide/right/image_raw
-      /camera_comp_wide/right/camera_info
-      /camera_comp_narrow/left/image_raw
-      /camera_comp_narrow/left/camera_info
-      /camera_comp_narrow/right/image_raw
-      /camera_comp_narrow/right/camera_info
+      /stereo_down/left/image_raw
+      /stereo_down/left/camera_info
+      /stereo_down/right/image_raw
+      /stereo_down/right/camera_info
       /motor_board/pressure
       /imu/data
       /imu/data_calibrated
@@ -21,10 +17,8 @@
       /imu/mag_filtered
       /imu/mag_filtered_calibrated
       /depth
-<<<<<<< HEAD
-=======
       /motor_board/humidity	
->>>>>>> 4a77c54c264ef307cc1fe730347bc45ec47a9992
+      /stereo_odometer_viso2/odometry
       $(arg topics)" />
 </launch>
 
