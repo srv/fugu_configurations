@@ -21,6 +21,5 @@
     <arg name="stereo" value="$(arg stereo)/scaled" />
     <arg name="standalone" value="$(arg standalone)" />
     <arg name="manager" value="$(arg manager)" />
-  </include>
-
+  </include> 
 </launch>

@@ -18,13 +18,13 @@ brightness: 0.0
 exposure: 0.0
 
 format7_color_coding: raw16
-format7_packet_size: 2048
+format7_packet_size: 512
 frame_rate: 7.5
 frame_rate_feature: 1232.0
 
 gain: 0.0
 gamma: 2.2000000000000002
-guid: 00b09d01009b8402
+guid: 00b09d01009b8404
 
 hue: 0.0
 
