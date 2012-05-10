@@ -3,38 +3,40 @@
 
   <include file="$(find fugu_configurations)/launch/stereo_camera.launch">
     <arg name="stereo" value="camera_flex_wide" />
-    <arg name="configuration" value="boxed_air" />
+    <arg name="base_topic" value="stereo_down" />
+    <arg name="configuration" value="boxed_water" />
     <!-- arg name="manager" value="/vision_manager" /-->
     <arg name="standalone" value="true" />
   </include>
   <include file="$(find fugu_configurations)/launch/stereo_pipeline.launch">
-    <arg name="stereo" value="camera_flex_wide" />
+    <arg name="stereo" value="stereo_down" />
     <!-- arg name="manager" value="/vision_manager" /-->
     <arg name="standalone" value="true" />
   </include>
 
   <include file="$(find fugu_configurations)/launch/stereo_camera.launch">
     <arg name="stereo" value="camera_flex_narrow" />
-    <arg name="configuration" value="boxed_air" />
-     arg name="manager" value="/vision_manager" /
+    <arg name="configuration" value="boxed_water" />
+    <arg name="base_topic" value="stereo_forward" />
+     <!-- arg name="manager" value="/vision_manager" /-->
     <arg name="standalone" value="true" />
   </include> /
 
   <include file="$(find fugu_configurations)/launch/stereo_pipeline.launch">
-    <arg name="stereo" value="camera_flex_narrow" />
+    <arg name="stereo" value="stereo_forward" />
     <arg name="standalone" value="true" />
-  </include> /
+  </include>
 
 <!--view a pair of stereo images --> 
   <include file="$(find fugu_configurations)/launch/stereo_view.launch" >
     <arg name="image" value="image_raw" />  
-    <arg name="stereo" value="camera_flex_wide" /> 
+    <arg name="stereo" value="stereo_forward" /> 
   </include> 
 
   <include file="$(find fugu_configurations)/launch/stereo_view.launch" >
     <arg name="image" value="image_raw" />  
-    <arg name="stereo" value="camera_flex_narrow" /> 
-  </include> 
+    <arg name="stereo" value="stereo_down" /> 
+  </include> -->
 
 <!-- activate motor board to read the pressure and humidity sensors data -->
   <include file="$(find fugu_configurations)/launch/motor_board.launch" >
@@ -50,7 +52,7 @@
 
   <include file="$(find fugu_configurations)/launch/viso2_stereo.launch" >
     <arg name="image" value="image_rect" />  
-    <arg name="stereo" value="camera_comp_wide" /> 
+    <arg name="stereo" value="stereo_down" /> 
   </include>
 
 
