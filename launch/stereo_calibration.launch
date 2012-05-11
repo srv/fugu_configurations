@@ -1,6 +1,6 @@
 <launch>
 
-  <arg name="stereo" default="stereo_camera" />
+  <arg name="stereo" />
 
   <node pkg="camera_calibration" type="cameracalibrator.py" name="camera_calibrator" 
         args="-k 6 --size 9x6 --square=0.0399" output="screen">
