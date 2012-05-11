@@ -1,0 +1,15 @@
+<launch>
+
+  <include file="$(find fugu_configurations)/launch/stereo_camera.launch">
+    <arg name="stereo" value="camera_flex_wide" />
+    <arg name="configuration" value="boxed_water" />
+    <arg name="base_topic" value="stereo_down" />
+    <arg name="standalone" value="true" />
+  </include>
+
+  <include file="$(find fugu_configurations)/launch/stereo_pipeline.launch">
+    <arg name="stereo" value="stereo_down" />   
+    <arg name="standalone" value="true" />
+  </include> 
+
+</launch>

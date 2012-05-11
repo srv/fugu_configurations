@@ -1,44 +1,16 @@
 <launch>
 
-  <include file="$(find fugu_configurations)/launch/stereo_camera.launch">
-    <arg name="stereo" value="camera_flex_wide" />
-    <arg name="configuration" value="boxed_water" />
-    <arg name="base_topic" value="stereo_down" />
-    <arg name="standalone" value="true" />
-  </include>
-  <include file="$(find fugu_configurations)/launch/stereo_pipeline.launch">
-    <arg name="stereo" value="stereo_down" />
-    <arg name="configuration" value="boxed_water" />
-    <arg name="base_topic" value="stereo_down" /> 	
-    <arg name="standalone" value="true" />
-  </include> 
+  <include file="$(find fugu_configurations)/launch/stereo_forward.launch" />
 
-   <include file="$(find fugu_configurations)/launch/stereo_pipeline.launch">
-    <arg name="stereo" value="stereo_down" />   
-    <arg name="standalone" value="true" />
-  </include> 
-
-  <include file="$(find fugu_configurations)/launch/stereo_camera.launch">
-    <arg name="stereo" value="camera_flex_narrow" />
-    <arg name="configuration" value="boxed_water" />
-    <arg name="base_topic" value="stereo_forward" />
-    <arg name="standalone" value="true" />
-  </include>  
-
-  <include file="$(find fugu_configurations)/launch/stereo_pipeline.launch">
-    <arg name="stereo" value="stereo_forward" />
-    <arg name="standalone" value="true" />
-  </include>
+  <include file="$(find fugu_configurations)/launch/stereo_down.launch" />
 
 <!-- activate motor board to read the pressure and humidity sensors data --> 
   <include file="$(find fugu_configurations)/launch/motor_board.launch" >
     <arg name="standalone" value="true" />  
   </include> 
 
-  <include file="$(find fugu_configurations)/launch/depth.launch" > 
-  </include>   
+  <include file="$(find fugu_configurations)/launch/depth.launch" /> 
 
-  <include file="$(find fugu_configurations)/launch/alarm.launch" >
-  </include> 
+  <include file="$(find fugu_configurations)/launch/alarm.launch" />
 
 </launch>
