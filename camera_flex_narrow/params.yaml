@@ -18,7 +18,7 @@ brightness: 0.0
 exposure: 0.0
 
 format7_color_coding: raw16
-format7_packet_size: 512
+format7_packet_size: 2048
 frame_rate: 7.5
 frame_rate_feature: 1232.0
 
