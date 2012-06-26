@@ -1,11 +1,16 @@
 <launch>
+  <arg name="configuration" default="boxed_water" />
 
   <include file="$(find fugu_configurations)/launch/stereo_camera.launch">
-    <arg name="stereo" value="camera_flex_narrow" />
-    <arg name="configuration" value="boxed_water" />
+    <arg name="camera" value="camera_flex_narrow" />
+    <arg name="configuration" value="$(arg configuration)" />
     <arg name="base_topic" value="stereo_forward" />
     <arg name="standalone" value="true" />
   </include>  
+
+  <node name="$(anon static_tf_publisher)" pkg="tf" 
+        type="static_transform_publisher"
+        args="0 0.06 0 -1.57 0 -1.57 /stereo_forward /stereo_forward_optical 100" />
 
   <include file="$(find fugu_configurations)/launch/stereo_pipeline.launch">
     <arg name="stereo" value="stereo_forward" />
