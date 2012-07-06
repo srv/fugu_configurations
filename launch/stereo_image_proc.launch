@@ -28,9 +28,6 @@
     <!-- point cloud2 -->
     <node pkg="nodelet" type="nodelet" name="stereo_image_proc_point_cloud2" output="screen"
           args="load stereo_image_proc/point_cloud2 $(arg manager)" />
-    <!-- point cloud -->
-    <node pkg="nodelet" type="nodelet" name="image_point_cloud" output="screen"
-          args="load stereo_image_proc/point_cloud2 $(arg manager)" />
   </group>
   
 </launch>
