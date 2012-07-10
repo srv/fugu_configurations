@@ -9,7 +9,7 @@ auto_iris: 1
 auto_pan: 1
 auto_saturation: 1
 auto_sharpness: 1
-auto_shutter: 1
+auto_shutter: 0
 auto_white_balance: 1
 auto_zoom: 1
 
@@ -44,7 +44,7 @@ roi_width: 0
 
 saturation: 1.0
 sharpness: 1.0
-shutter: 1.0
+shutter: 120.0
 
 stereo_method: Interlaced
 
