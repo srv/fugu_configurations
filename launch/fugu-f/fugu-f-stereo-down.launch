@@ -1,0 +1,20 @@
+<launch>
+
+  <arg name="stereo_down_base_topic" default="stereo_down" />
+  <arg name="stereo_down_camera_name" default="BB2-08S2-25_1" />
+  <arg name="calibration" default="boxed_water" />
+  <arg name="standalone" default="true" />
+
+  <include file="$(find fugu_configurations)/launch/common/stereo_camera.launch">
+    <arg name="stereo" value="$(arg stereo_down_camera_name)" />
+    <arg name="calibration" value="$(arg calibration)" />
+    <arg name="base_topic" value="$(arg stereo_down_base_topic)" />
+    <arg name="standalone" value="$(arg standalone)" />
+  </include>
+  
+  <include file="$(find fugu_configurations)/launch/common/stereo_pipeline.launch">
+    <arg name="stereo" value="$(arg stereo_down_base_topic)" />
+    <arg name="standalone" value="$(arg standalone)" />
+  </include>
+
+</launch>

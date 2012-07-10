@@ -1,0 +1,32 @@
+<launch>
+
+<!-- to activate and run the motors -->
+  <include file="$(find fugu_configurations)/launch/common/motor_board.launch" >
+    <arg name="standalone" value="true" /> 
+  </include>
+
+  <include file="$(find fugu_configurations)/launch/common/depth.launch" >
+  </include>
+
+  <include file="$(find fugu_configurations)/launch/fugu-c/imu.launch" >
+    <arg name="standalone" value="true" /> 
+  </include>
+ 
+  <!-- to convert wrench levels into motor_levels -->
+  <include file="$(find fugu_configurations)/launch/fugu-c/thruster_allocation.launch" >
+    <arg name="standalone" value="true" /> 
+  </include>
+  
+  <!-- added to include the autonomous control motion with a PID -->
+  <include file="$(find fugu_configurations)/launch/fugu-c/twist_control.launch" >
+    <arg name="twist_levels" value="twist_levels" />
+    <arg name="wrench_levels" value="wrench_levels" />
+    <arg name="odometry" value="stereo_odometer_viso2/odometry" />
+  </include>
+
+  <node pkg="viso2_ros" type="stereo_odometer" name="viso2">
+    <remap from="image" to="image_rect" />  
+    <remap from="stereo" to="stereo_down" /> 
+  </include>
+
+</launch>
