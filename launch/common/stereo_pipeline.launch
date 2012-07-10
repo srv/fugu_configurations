@@ -1,12 +1,14 @@
 <launch>
 
   <arg name="stereo" />
+  <arg name="camera" />
 
   <arg name="manager" default="manager" />
   <arg name="standalone" default="false" />
 
   <include file="$(find fugu_configurations)/launch/common/stereo_image_proc.launch" >
     <arg name="stereo" value="$(arg stereo)" />
+    <arg name="camera" value="$(arg camera)" />
     <arg name="standalone" value="$(arg standalone)" />
     <arg name="manager" value="$(arg manager)" />
   </include>
@@ -19,6 +21,7 @@
 
   <include file="$(find fugu_configurations)/launch/common/stereo_image_proc.launch" >
     <arg name="stereo" value="$(arg stereo)/scaled" />
+    <arg name="camera" value="$(arg camera)/scaled" />
     <arg name="standalone" value="$(arg standalone)" />
     <arg name="manager" value="$(arg manager)" />
   </include> 
