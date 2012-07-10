@@ -1,0 +1,11 @@
+<launch>
+
+  <include file="$(find fugu_configurations)/launch/fugu-c/fugu-c-cameras.launch">
+  
+  </include>
+  
+  <include file="$(find fugu_configurations)/launch/fugu-c/fugu-c-navigation.launch">
+  
+  </include>
+  
+</launch>

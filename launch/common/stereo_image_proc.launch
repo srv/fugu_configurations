@@ -1,0 +1,53 @@
+<launch>
+  
+  <!--
+  
+  ARGUMENTS:
+  
+  - mandatory:
+  
+    -stereo
+    
+  - optional:
+  
+    -manager
+    -standalone
+    -image_prog_params
+  
+  -->
+  
+  <arg name="manager" default="manager" />
+  <arg name="standalone" default="false" />
+  
+  <!-- roslaunch ignores ROS_NAMESPACE environment variable and ns remapping -->
+  <arg name="stereo" />
+  <arg name="image_prog_params" default="default_image_proc.yaml"/>
+  
+  <group if="$(arg standalone)" ns="$(arg stereo)" >
+    <node pkg="stereo_image_proc" type="stereo_image_proc" name="stereo_image_proc" output="screen" >
+      <rosparam file="$(find fugu_configurations)/$(arg stereo)/$(arg image_prog_params)"/>
+    </node>
+  </group>
+  
+  <group unless="$(arg standalone)" ns="$(arg stereo)" >
+    <!-- left color and distortion processing -->
+    <include file="$(find fugu_configurations)/launch/common/image_proc.launch" >
+      <arg name="camera" value="left" />
+      <arg name="manager" value="$(arg manager)" />
+    </include>
+    <!-- right color and distortion processing -->
+    <include file="$(find fugu_configurations)/launch/common/image_proc.launch" >
+      <arg name="camera" value="right" />
+      <arg name="manager" value="$(arg manager)" />
+    </include>
+    <!-- disparity -->
+    <node pkg="nodelet" type="nodelet" name="stereo_image_proc_disparity" output="screen"
+          args="load stereo_image_proc/disparity $(arg manager)" >
+      <rosparam file="$(find fugu_configurations)/$(arg stereo)/$(arg image_prog_params)"/>
+    </node>
+    <!-- point cloud2 -->
+    <node pkg="nodelet" type="nodelet" name="stereo_image_proc_point_cloud2" output="screen"
+          args="load stereo_image_proc/point_cloud2 $(arg manager)" />
+  </group>
+  
+</launch>
