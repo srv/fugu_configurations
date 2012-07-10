@@ -1,6 +1,6 @@
 <launch>
   <arg name="stereo_forward_base_topic" default="stereo_forward" />
-  <arg name="stereo_forward_camera_name" default="BB2-08S2-38_0" />
+  <arg name="stereo_forward_camera_name" default="BB2-08S2-38_1" />
   <arg name="calibration" default="boxed_water" />
   <arg name="standalone" default="true" />
 

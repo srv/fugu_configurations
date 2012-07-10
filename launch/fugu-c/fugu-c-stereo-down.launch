@@ -1,7 +1,7 @@
 <launch>
 
   <arg name="stereo_down_base_topic" default="stereo_down" />
-  <arg name="stereo_down_camera_name" default="BB2-08S2-25_1" />
+  <arg name="stereo_down_camera_name" default="BB2-08S2-25_0" />
   <arg name="calibration" default="cylinder_water" />
   <arg name="standalone" default="true" />
 
