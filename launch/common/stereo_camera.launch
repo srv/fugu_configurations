@@ -26,12 +26,14 @@
   <arg name="base_topic" default="$(arg camera)" />
   
   <arg name="camera_params" default="params.yaml"/>
+  <arg name="common_params" default="common_params.yaml"/>
   <arg name="manager" default="manager" />
   <arg name="standalone" default="false" />
 
   <group if="$(arg standalone)">
     <node pkg="camera1394stereo" type="camera1394stereo_node" name="$(arg base_topic)_node" output="screen" >
-      <rosparam file="$(find fugu_configurations)/$(arg camera)/$(arg camera_params)" />
+      <rosparam file="$(find fugu_configurations)/cameras/$(arg common_params)" />
+      <rosparam file="$(find fugu_configurations)/cameras/$(arg camera)/$(arg camera_params)" />
       <param name="frame_id" value="$(arg base_topic)_optical" />
       <param name="camera_info_url_left" value="file://$(find fugu_configurations)/$(arg camera)/calibration_$(arg calibration)_left.yaml" />
       <param name="camera_info_url_right" value="file://$(find fugu_configurations)/$(arg camera)/calibration_$(arg calibration)_right.yaml" />
