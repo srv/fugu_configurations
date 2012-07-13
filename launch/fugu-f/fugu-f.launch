@@ -1,10 +1,7 @@
 <launch>
 
-  <arg name="stereo_forward" default="false" />
 
-  <include file="$(find fugu_configurations)/launch/fugu-f/fugu-f-stereo-forward.launch" if="$(arg stereo_forward)" />
-
-  <include file="$(find fugu_configurations)/launch/fugu-f/fugu-f-stereo-down.launch" />
+  <include file="$(find fugu_configurations)/launch/fugu-f/fugu-f-cameras.launch" />
 
 <!-- activate motor board to read the pressure and humidity sensors data --> 
   <include file="$(find fugu_configurations)/launch/common/motor_board.launch" >
