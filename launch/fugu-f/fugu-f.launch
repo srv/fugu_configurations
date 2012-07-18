@@ -8,8 +8,6 @@
     <arg name="standalone" value="true" />  
   </include> 
 
-  <include file="$(find fugu_configurations)/launch/common/depth.launch" /> 
-
   <include file="$(find fugu_configurations)/launch/common/alarm.launch" />
 
 </launch>

@@ -16,4 +16,6 @@
     </node>
   </group>
 
+  <node name="pressure_to_depth" pkg="albatros_motor_board" type="pressure_to_depth.py" ns="motor_board" output="screen" />
+
 </launch>
