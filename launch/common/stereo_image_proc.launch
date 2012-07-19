@@ -5,7 +5,6 @@
   
   - mandatory:
     -stereo
-    -camera
     
   - optional:
     -manager
@@ -18,8 +17,7 @@
   
   <!-- roslaunch ignores ROS_NAMESPACE environment variable and ns remapping -->
   <arg name="stereo" />
-  <arg name="camera" />
-  <arg name="disparity_params" default="$(find fugu_configurations)/cameras/$(arg camera)/default_disparity_params.yaml"/>
+  <arg name="disparity_params" default="$(find fugu_configurations)/cameras/default_disparity_params.yaml"/>
   
   <group if="$(arg standalone)" ns="$(arg stereo)" >
     <node pkg="stereo_image_proc" type="stereo_image_proc" name="stereo_image_proc" output="screen" >
