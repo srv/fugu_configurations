@@ -14,7 +14,6 @@
   </include>
   
   <include file="$(find fugu_configurations)/launch/common/stereo_pipeline.launch">
-    <arg name="camera" value="$(arg stereo_forward_camera_name)" />
     <arg name="stereo" value="$(arg stereo_forward_base_topic)" />
     <arg name="standalone" value="$(arg standalone)" />
   </include>
