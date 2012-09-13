@@ -2,7 +2,7 @@
   <arg name="topics" default="" />
   <arg name="prefix" />
   <node pkg="rosbag" type="record" name="rosbag" output="screen"
-    args="record --split --size=1000 -o '$(arg prefix)'
+    args="record --split --size=1000 -o '/data/$(arg prefix)'
       /stereo_down/left/image_raw
       /stereo_down/left/camera_info
       /stereo_down/right/image_raw
