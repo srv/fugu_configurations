@@ -1,0 +1,21 @@
+<launch>
+
+  <include file="$(find fugu_configurations)/launch/fugu-c/fugu-c-stereo-down.launch">
+    <arg name="with_pipeline" value="false" /> 
+  </include>
+  
+  <include file="$(find fugu_configurations)/launch/fugu-c/fugu-c-stereo-forward.launch">
+    <arg name="with_pipeline" value="false" />
+  </include>
+  
+  <include file="$(find fugu_configurations)/launch/common/alarm.launch" />
+
+  <include file="$(find fugu_configurations)/launch/common/motor_board.launch" >
+    <arg name="standalone" value="true" /> 
+  </include>
+
+  <include file="$(find fugu_configurations)/launch/fugu-c/thruster_allocation.launch">
+    <arg name="standalone" value="true" /> 
+  </include>
+ 
+</launch>
