@@ -18,6 +18,7 @@
       /imu/mag_filtered_calibrated
       /depth
       /motor_board/humidity	
+      /tf
       $(arg topics)" />
 </launch>
 
