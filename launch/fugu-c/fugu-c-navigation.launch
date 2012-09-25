@@ -5,11 +5,10 @@
     <arg name="standalone" value="true" /> 
   </include>
 
-<!--
   <include file="$(find fugu_configurations)/launch/fugu-c/imu.launch" >
     <arg name="standalone" value="true" /> 
   </include>
- -->
+
   <!-- to convert wrench levels into motor_levels -->
   <include file="$(find fugu_configurations)/launch/fugu-c/thruster_allocation.launch">
     <arg name="standalone" value="true" /> 
