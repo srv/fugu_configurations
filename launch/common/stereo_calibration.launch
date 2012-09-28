@@ -10,12 +10,4 @@
     <remap from="right_camera" to="$(arg stereo)/right" />
   </node>
 
-  <node pkg="rosbag" type="rosbag" name="rosbag" 
-        args="record -o '$(find bagfiles)/calibration_$(arg stereo)'
-              /$(arg stereo)/left/image_raw
-              /$(arg stereo)/right/image_raw
-              /$(arg stereo)/left/camera_info
-              /$(arg stereo)/right/camera_info"
-     output="screen" />
-
 </launch>
