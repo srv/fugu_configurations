@@ -8,6 +8,8 @@
       http://www.ros.org/wiki/ps3joy
   -->
 
+  <arg name="altitude_controller" default="false"/>
+
   <!-- joy node -->
   <node pkg="joy" type="joy_node" name="joy_node" output="screen">
     <rosparam file="$(find fugu_configurations)/joystick/params.yaml" />
@@ -20,6 +22,17 @@
     <rosparam param="wrench_policy" file="$(find fugu_configurations)/teleoperation_joy/wrench_policy_params.yaml" />
     <rosparam param="twist_policy"  file="$(find fugu_configurations)/teleoperation_joy/twist_policy_params.yaml" />
     <remap from="motor_levels" to="motor_board/speeds_pc" />
+    <remap from="wrench_levels" to="altitude_controller/wrench_input" if="$(arg altitude_controller)" />
   </node>
+
+  <group if="$(arg altitude_controller)">
+    <node pkg="auv_control" type="altitude_controller.py" name="altitude_controller" output="screen">
+      <remap from="altitude" to="visual_altimeter/altitude"/>
+      <remap from="wrench_output" to="wrench_levels"/>
+    </node>
+    <node pkg="visual_altimeter" type="" name="visual_altimeter">
+      <remap from="point_cloud" to="stereo_down/points2"/>
+    </node>
+  </group>
 
 </launch>
