@@ -30,7 +30,7 @@
       <remap from="altitude" to="visual_altimeter/altitude"/>
       <remap from="wrench_output" to="wrench_levels"/>
     </node>
-    <node pkg="visual_altimeter" type="" name="visual_altimeter">
+    <node pkg="visual_altimeter" type="visual_altimeter" name="visual_altimeter">
       <remap from="point_cloud" to="stereo_down/points2"/>
     </node>
   </group>
