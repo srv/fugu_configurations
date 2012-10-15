@@ -1,7 +1,14 @@
 <launch>
+
+  <arg name="with_pipeline" default="false"/>
   
-  <include file="$(find fugu_configurations)/launch/fugu-c/fugu-c-stereo-forward.launch"/>
+  <!-- by default, drivers are only launched -->
+  <include file="$(find fugu_configurations)/launch/fugu-c/fugu-c-stereo-down.launch">
+    <arg name="with_pipeline" value="$(arg with_pipeline)" /> 
+  </include>
   
-  <include file="$(find fugu_configurations)/launch/fugu-c/fugu-c-stereo-down.launch"/>
+  <include file="$(find fugu_configurations)/launch/fugu-c/fugu-c-stereo-forward.launch">
+    <arg name="with_pipeline" value="$(arg with_pipeline)" /> 
+  </include>
 
 </launch>

@@ -1,4 +1,5 @@
 <launch>
+
   <arg name="stereo_forward_base_topic" default="stereo_forward" />
   <arg name="stereo_forward_camera_name" default="BB2_08S2C_38_0" />
   <arg name="calibration" default="cylinder_water" />
