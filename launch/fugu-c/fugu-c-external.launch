@@ -15,4 +15,7 @@
     <arg name="standalone" value="$(arg standalone)" />
   </include>
  
+  <include file="$(find fugu_configurations)/launch/fugu-c/teleoperation_pipeline.launch">
+    <arg name="altitude_controller" value="true"/>
+  </include>
 </launch>
