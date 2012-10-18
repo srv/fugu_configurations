@@ -1,0 +1,22 @@
+<launch>
+
+  <arg name="stereo_down_base_topic" default="stereo_down" />
+  <arg name="stereo_forward_base_topic" default="stereo_forward" />
+  <arg name="standalone" default="true" />
+
+  <!-- to launch processor demanding processes outside fugu-c -->
+  <include file="$(find fugu_configurations)/launch/common/stereo_pipeline.launch">
+    <arg name="stereo" value="$(arg stereo_down_base_topic)" />
+    <arg name="standalone" value="$(arg standalone)" />
+  </include>
+  
+  <include file="$(find fugu_configurations)/launch/common/stereo_pipeline.launch">
+    <arg name="stereo" value="$(arg stereo_forward_base_topic)" />
+    <arg name="standalone" value="$(arg standalone)" />
+  </include>
+ 
+  <include file="$(find fugu_configurations)/launch/fugu-c/teleoperation_pipeline.launch">
+    <arg name="run_altitude_controller" value="true"/>
+    <arg name="run_depth_controller" value="true" />
+  </include>
+</launch>

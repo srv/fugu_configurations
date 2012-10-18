@@ -1,8 +1,8 @@
 <launch>
   <arg name="topics" default="" />
   <arg name="prefix" />
-  <node pkg="rosbag" type="rosbag" name="rosbag" output="screen"
-    args="record --split --size=1000 -o '$(arg prefix)'
+  <node pkg="rosbag" type="record" name="rosbag" output="screen"
+    args="record --split --size=1000 -o '/data/$(arg prefix)'
       /stereo_down/left/image_raw
       /stereo_down/left/camera_info
       /stereo_down/right/image_raw
@@ -18,7 +18,7 @@
       /imu/mag_filtered_calibrated
       /depth
       /motor_board/humidity	
-      /stereo_odometer_viso2/odometry
+      /tf
       $(arg topics)" />
 </launch>
 

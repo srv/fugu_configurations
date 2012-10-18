@@ -1,11 +1,16 @@
 <launch>
 
+  <!-- stereo cameras without pipeline -->
+  <arg name="with_pipeline" default="false"/>
+
   <include file="$(find fugu_configurations)/launch/fugu-c/fugu-c-cameras.launch">
-  
+    <arg name="with_pipeline" value="$(arg with_pipeline)" /> 
   </include>
-  
-  <include file="$(find fugu_configurations)/launch/fugu-c/fugu-c-navigation.launch">
-  
-  </include>
-  
+
+  <!-- motor_board, imu and thruster_allocation -->  
+  <include file="$(find fugu_configurations)/launch/fugu-c/fugu-c-navigation.launch"/>
+
+  <!-- to check humidity and stop everyting if there is any -->  
+  <include file="$(find fugu_configurations)/launch/common/alarm.launch"/>
+
 </launch>
