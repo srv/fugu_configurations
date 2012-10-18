@@ -30,6 +30,7 @@
 
   <group if="$(arg altitude_controller)">
     <node pkg="auv_control" type="altitude_controller.py" name="altitude_controller" output="screen">
+      <rosparam file="$(find fugu_configurations)/auv_control/altitude_controller.yaml" />
       <remap from="altitude" to="visual_altimeter/altitude"/>
       <remap from="~wrench_output" to="wrench_levels"/>
     </node>
