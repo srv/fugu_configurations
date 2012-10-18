@@ -7,7 +7,10 @@
       /stereo_down/left/camera_info
       /stereo_down/right/image_raw
       /stereo_down/right/camera_info
-      /motor_board/pressure
+      /stereo_forward/left/image_raw
+      /stereo_forward/left/camera_info
+      /stereo_forward/right/image_raw
+      /stereo_forward/right/camera_info
       /imu/data
       /imu/data_calibrated
       /imu/data_filtered
@@ -16,7 +19,8 @@
       /imu/mag_calibrated
       /imu/mag_filtered
       /imu/mag_filtered_calibrated
-      /depth
+      /motor_board/pressure
+      /motor_board/depth
       /motor_board/humidity	
       /tf
       $(arg topics)" />
