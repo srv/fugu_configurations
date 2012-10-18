@@ -16,6 +16,7 @@
   </include>
  
   <include file="$(find fugu_configurations)/launch/fugu-c/teleoperation_pipeline.launch">
-    <arg name="altitude_controller" value="true"/>
+    <arg name="run_altitude_controller" value="true"/>
+    <arg name="run_depth_controller" value="true" />
   </include>
 </launch>
