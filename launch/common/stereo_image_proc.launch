@@ -37,21 +37,13 @@
       <arg name="manager" value="$(arg manager)" />
     </include>
     <!-- disparity -->
-    <node pkg="nodelet" type="nodelet" name="stereo_image_proc_disparity" output="screen"
+    <node pkg="nodelet" type="nodelet" name="$(anon stereo_image_proc_disparity)" output="screen"
           args="load stereo_image_proc/disparity $(arg manager)" >
       <rosparam file="$(arg disparity_params)"/>
     </node>
     <!-- point cloud2 -->
-    <node pkg="nodelet" type="nodelet" name="stereo_image_proc_point_cloud2" output="screen"
+    <node pkg="nodelet" type="nodelet" name="$(anon stereo_image_proc_point_cloud2)" output="screen"
           args="load stereo_image_proc/point_cloud2 $(arg manager)" />
-          
-    <node pkg="nodelet" type="nodelet" name="voxel_grid" args="load pcl/VoxelGrid pcl_manager" output="screen">
-      <remap from="~input" to="/stereo_down/points2" />
-      <remap from="~output" to="/stereo_down/points2_filtered" />
-      <rosparam>
-        leaf_size: 0.01
-      </rosparam>
-    </node>
   </group>
   
 </launch>
