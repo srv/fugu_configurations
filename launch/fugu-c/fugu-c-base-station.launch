@@ -1,0 +1,18 @@
+<launch>
+
+  <include file="$(find fugu_configurations)/launch/common/stereo_pipeline.launch">
+    <arg name="stereo" value="stereo_down" />
+    <arg name="standalone" value="true" />
+  </include>
+  
+  <include file="$(find fugu_configurations)/launch/common/stereo_pipeline.launch">
+    <arg name="stereo" value="stereo_forward" />
+    <arg name="standalone" value="true" />
+  </include>
+ 
+  <include file="$(find fugu_configurations)/launch/fugu-c/teleoperation_pipeline.launch">
+    <arg name="run_altitude_controller" value="true"/>
+    <arg name="run_depth_controller" value="true" />
+  </include>
+
+</launch>

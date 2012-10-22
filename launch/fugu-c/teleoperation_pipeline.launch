@@ -52,4 +52,14 @@
     </node>
   </group>
 
+  <node pkg="twist_control" type="twist_control_node" name="twist_control_node" output="screen" >
+    <param name="pid_info_url" value="$(find fugu_configurations)/auv_control/twist_controller.yaml" />
+    <param name="pid_name" value="twist_PID" />
+    <param name="pid_response_hz" value="10.0" />
+    <remap from="set_info" to="set_twist_pid_info" />
+    <remap from="twist_levels" to="/twist_levels" />
+    <remap from="wrench_levels" to="/wrench_levels" />
+    <remap from="odometry" to="/stereo_odometer/odometry" />
+  </node>
+
 </launch>

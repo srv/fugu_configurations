@@ -1,5 +1,4 @@
----
-name: twist_PID_test
+name: twist_PID
 PID:
   rows: 6
   cols: 6
