@@ -3,9 +3,7 @@
   <include file="$(find fugu_configurations)/launch/fugu-c/fugu-c-stereo-down.launch"/>
   <include file="$(find fugu_configurations)/launch/fugu-c/fugu-c-stereo-forward.launch"/>
 
-  <!-- load robot model and publish its inherent static tfs -->
-  <param name="robot_description" textfile="$(find fugu_configurations)/robot_models/fugu-c.urdf" />
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+  <include file="$(find fugu_configurations)/launch/fugu-c/fugu-c-model.launch"/>
 
   <node pkg="albatros_motor_board" type="motor_board_node" name="motor_board_node" output="screen" >
     <rosparam file="$(find fugu_configurations)/motor_board/params.yaml" />
@@ -14,13 +12,6 @@
   <node pkg="memsense_imu" type="imu_node" name="imu_node" output="screen">
     <rosparam file="$(find fugu_configurations)/imu/params.yaml" />
     <param name="frame_id" value="imu" />
-  </node>
-
-  <node pkg="thruster_allocation" type="thruster_allocation_node" name="thruster_allocation_node" output="screen" >
-    <param name="name" value="fugu_comp_standard" />
-    <param name="tam_info_url" value="package://fugu_configurations/thruster_allocation/tam_info.yaml" />
-    <remap from="set_info" to="set_tam_info" />
-    <remap from="motor_levels" to="motor_board/speeds_pc" />
   </node>
 
   <node pkg="alarm" type="alarm" name="emergency_alarm_node" output="screen">
