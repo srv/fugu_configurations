@@ -6,7 +6,7 @@
   <link name="base_link">
     <visual>
       <geometry>
-        <cylinder length="0.3" radius="0.1"/>
+        <cylinder length="0.208" radius="0.106"/>
       </geometry>
       <material name="cylinder">
         <color rgba="1 1 1 0.3"/>
@@ -67,7 +67,7 @@
   <joint name="base_link_to_stereo_down" type="fixed">
     <parent link="base_link"/>
     <child link="stereo_down"/>
-    <origin xyz="0 0 0.1" rpy="0 -1.5708 0"/>
+    <origin xyz="0 0 0.095" rpy="0 -1.5708 0"/>
   </joint>
 
   <joint name="stereo_down_to_stereo_down_optical" type="fixed">
@@ -79,7 +79,7 @@
   <joint name="base_link_to_stereo_forward" type="fixed">
     <parent link="base_link"/>
     <child link="stereo_forward"/>
-    <origin xyz="0.1 0 0" rpy="3.1416 0 0"/>
+    <origin xyz="0.094 0 0" rpy="3.1416 0 0"/>
   </joint>
 
   <joint name="stereo_forward_to_stereo_forward_optical" type="fixed">
