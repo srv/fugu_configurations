@@ -1,5 +1,9 @@
 <launch>
 
+  <include file="$(find fugu_configurations)/launch/fugu-c/fugu-c.launch"/>
+
+  <include file="$(find fugu_configurations)/launch/fugu-c/control_pipeline.launch"/>
+
   <include file="$(find fugu_configurations)/launch/common/stereo_pipeline.launch">
     <arg name="stereo" value="stereo_down" />
     <arg name="standalone" value="true" />
@@ -10,8 +14,6 @@
     <arg name="standalone" value="true" />
   </include>
  
-  <include file="$(find fugu_configurations)/launch/fugu-c/teleoperation.launch"/>
-
   <node name="visual_altimeter" pkg="visual_altimeter" type="visual_altimeter">
     <remap from="~altitude" to="altitude"/>
   </node>

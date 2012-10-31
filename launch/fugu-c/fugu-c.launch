@@ -18,7 +18,10 @@
     <param name="tolerance" value="1500" type="int" />
     <param name="status_publish_frequency" value="0.5" />
     <param name="actions" value="`echo $HOME`/waterinmonitor/init/waterinactions.sh" />
-    <remap from ="humidity" to = "/motor_board/humidity"/>
+  </node>
+
+  <node pkg="auv_control" type="auv_safety_manager.py" name="auv_safety_manager" output="screen">
+    <rosparam file="$(find fugu_configurations)/auv_control/auv_safety_manager.yaml" />
   </node>
 
 </launch>
