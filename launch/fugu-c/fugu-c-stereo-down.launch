@@ -5,7 +5,6 @@
   <arg name="calibration" default="cylinder_water" />
   <arg name="standalone" default="true" />
   <arg name="camera_params" default="$(find fugu_configurations)/no_params.yaml" />
-  <arg name="with_pipeline" default="true" />
 
   <include file="$(find fugu_configurations)/launch/common/stereo_camera.launch">
     <arg name="camera" value="$(arg stereo_down_camera_name)" />
@@ -15,9 +14,4 @@
     <arg name="camera_params" value="$(arg camera_params)" />
   </include>
   
-  <include if="$(arg with_pipeline)" file="$(find fugu_configurations)/launch/common/stereo_pipeline.launch">
-    <arg name="stereo" value="$(arg stereo_down_base_topic)" />
-    <arg name="standalone" value="$(arg standalone)" />
-  </include>
-
 </launch>

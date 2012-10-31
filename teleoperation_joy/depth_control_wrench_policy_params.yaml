@@ -1,0 +1,51 @@
+frame_id: "/base_link"
+
+linear_x_offset_step: 0.1
+linear_x_factor: 0.75
+
+linear_y_offset_step: 0.0
+linear_y_factor: 0.0
+
+depth_offset_step: 0.1
+depth_factor: 0.0
+
+angular_x_offset_step: 0.1
+angular_x_factor: -0.75
+
+angular_y_offset_step: 0.0
+angular_y_factor: 0.0
+
+angular_z_offset_step: 0.1
+angular_z_factor: -0.75
+
+pause_button: 3
+
+linear_x_axis: 1
+linear_x_positive_offset_button: 4
+linear_x_negative_offset_button: 6
+linear_x_reset_button: 10
+
+linear_y_axis: -1
+linear_y_positive_offset_button: -1
+linear_y_negative_offset_button: -1
+linear_y_reset_button: -1
+
+depth_axis: -1
+depth_positive_offset_button: 12
+depth_negative_offset_button: 14
+depth_reset_button: 11
+
+angular_x_axis: 2
+angular_x_positive_offset_button: 13
+angular_x_negative_offset_button: 15
+angular_x_reset_button: 9
+
+angular_y_axis: -1
+angular_y_positive_offset_button: -1
+angular_y_negative_offset_button: -1
+angular_y_reset_button: -1
+
+angular_z_axis: 0
+angular_z_positive_offset_button: 5
+angular_z_negative_offset_button: 7
+angular_z_reset_button: 8

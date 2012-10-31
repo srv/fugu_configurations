@@ -8,34 +8,22 @@
       http://www.ros.org/wiki/ps3joy
   -->
 
-  <arg name="altitude_controller" default="false"/>
-
   <!-- joy node -->
   <node pkg="joy" type="joy_node" name="joy_node" output="screen">
     <rosparam file="$(find fugu_configurations)/joystick/params.yaml" />
   </node>
   
   <!-- teleoperation_joy node -->
-  <node pkg="fugu_teleoperation" type="fugu_teleop_joy_node" name="fugu_teleop_joy_node" output="screen">
+  <node pkg="fugu_teleoperation" type="fugu_teleop_joy_node" name="fugu_teleoperation" output="screen">
     <rosparam file="$(find fugu_configurations)/teleoperation_joy/params.yaml" />
     <rosparam param="motor_policy"  file="$(find fugu_configurations)/teleoperation_joy/motor_policy_params.yaml" />
     <rosparam param="wrench_policy" file="$(find fugu_configurations)/teleoperation_joy/wrench_policy_params.yaml" />
     <rosparam param="altitude_control_wrench_policy" file="$(find fugu_configurations)/teleoperation_joy/altitude_control_wrench_policy_params.yaml" />
+    <rosparam param="depth_control_wrench_policy" file="$(find fugu_configurations)/teleoperation_joy/depth_control_wrench_policy_params.yaml" />
     <rosparam param="twist_policy"  file="$(find fugu_configurations)/teleoperation_joy/twist_policy_params.yaml" />
     <remap from="motor_levels" to="motor_board/speeds_pc" />
-    <remap from="wrench_request" to="altitude_controller/wrench_input" />
     <remap from="enable_altitude_control" to="altitude_controller/enable" />
-    <remap from="altitude_request" to="altitude_controller/altitude_request" />
+    <remap from="enable_depth_control" to="depth_controller/enable" />
   </node>
-
-  <group if="$(arg altitude_controller)">
-    <node pkg="auv_control" type="altitude_controller.py" name="altitude_controller" output="screen">
-      <remap from="altitude" to="visual_altimeter/altitude"/>
-      <remap from="~wrench_output" to="wrench_levels"/>
-    </node>
-    <node pkg="visual_altimeter" type="visual_altimeter" name="visual_altimeter">
-      <remap from="point_cloud" to="stereo_down/scaled/points2"/>
-    </node>
-  </group>
 
 </launch>
