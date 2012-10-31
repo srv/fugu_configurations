@@ -21,7 +21,6 @@
     <rosparam param="altitude_control_wrench_policy" file="$(find fugu_configurations)/teleoperation_joy/altitude_control_wrench_policy_params.yaml" />
     <rosparam param="depth_control_wrench_policy" file="$(find fugu_configurations)/teleoperation_joy/depth_control_wrench_policy_params.yaml" />
     <rosparam param="twist_policy"  file="$(find fugu_configurations)/teleoperation_joy/twist_policy_params.yaml" />
-    <remap from="motor_levels" to="motor_board/speeds_pc" />
     <remap from="enable_altitude_control" to="altitude_controller/enable" />
     <remap from="enable_depth_control" to="depth_controller/enable" />
   </node>
