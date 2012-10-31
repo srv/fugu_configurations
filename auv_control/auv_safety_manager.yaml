@@ -3,7 +3,7 @@ topic_monitors:
     min_frequency: 1
     field_monitors:
       - field: depth
-        max_value: 10.0
+        max_value: 4.5
   - topic: /altitude
     field_monitors:
       - field: range
