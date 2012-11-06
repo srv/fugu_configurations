@@ -15,13 +15,16 @@
   
   <!-- teleoperation_joy node -->
   <node pkg="auv_teleoperation" type="teleoperation_joy_node" 
-        name="teleoperation_joy_node" output="screen">
+        name="fugu_teleoperation" output="screen">
     <rosparam file="$(find fugu_configurations)/auv_framework/teleoperation_params.yaml" />
+    <!-- remap direct control topics to root namespace -->
     <remap from="~motor_policy/motor_levels" to="motor_levels"/>
     <remap from="~wrench_policy/wrench" to="wrench_request"/>
-    <remap from="~altitude_control_wrench_policy/wrench" to="wrench_request"/>
-    <remap from="~depth_control_wrench_policy/wrench" to="wrench_request"/>
     <remap from="~twist_policy/twist" to="twist"/>
+    <remap from="~altitude_control_wrench_policy/altitude_request" to="altitude_request"/>
+    <remap from="~depth_control_wrench_policy/depth_request" to="depth_request"/>
+    <remap from="enable_altitude_control" to="altitude_controller/enable"/>
+    <remap from="enable_depth_control" to="depth_controller/enable"/>
   </node>
 
 </launch>
