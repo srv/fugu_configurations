@@ -25,6 +25,7 @@
     <remap from="~depth_control_wrench_policy/depth_request" to="depth_request"/>
     <remap from="enable_altitude_control" to="altitude_controller/enable"/>
     <remap from="enable_depth_control" to="depth_controller/enable"/>
+    <remap from="enable_twist_control" to="twist_controller/enable"/>
   </node>
 
 </launch>
