@@ -14,15 +14,14 @@
   </node>
   
   <!-- teleoperation_joy node -->
-  <node pkg="fugu_teleoperation" type="fugu_teleop_joy_node" name="fugu_teleoperation" output="screen">
-    <rosparam file="$(find fugu_configurations)/teleoperation_joy/params.yaml" />
-    <rosparam param="motor_policy"  file="$(find fugu_configurations)/teleoperation_joy/motor_policy_params.yaml" />
-    <rosparam param="wrench_policy" file="$(find fugu_configurations)/teleoperation_joy/wrench_policy_params.yaml" />
-    <rosparam param="altitude_control_wrench_policy" file="$(find fugu_configurations)/teleoperation_joy/altitude_control_wrench_policy_params.yaml" />
-    <rosparam param="depth_control_wrench_policy" file="$(find fugu_configurations)/teleoperation_joy/depth_control_wrench_policy_params.yaml" />
-    <rosparam param="twist_policy"  file="$(find fugu_configurations)/teleoperation_joy/twist_policy_params.yaml" />
-    <remap from="enable_altitude_control" to="altitude_controller/enable" />
-    <remap from="enable_depth_control" to="depth_controller/enable" />
+  <node pkg="auv_teleoperation" type="teleoperation_joy_node" 
+        name="teleoperation_joy_node" output="screen">
+    <rosparam file="$(find fugu_configurations)/auv_framework/teleoperation_params.yaml" />
+    <remap from="~motor_policy/motor_levels" to="motor_levels"/>
+    <remap from="~wrench_policy/wrench" to="wrench_request"/>
+    <remap from="~altitude_control_wrench_policy/wrench" to="wrench_request"/>
+    <remap from="~depth_control_wrench_policy/wrench" to="wrench_request"/>
+    <remap from="~twist_policy/twist" to="twist"/>
   </node>
 
 </launch>
