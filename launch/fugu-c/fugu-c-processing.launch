@@ -1,3 +1,7 @@
+<!-- 
+     stereo processing, visual altimeter and visual odometry 
+-->
+
 <launch>
 
   <include file="$(find fugu_configurations)/launch/common/stereo_pipeline.launch">
@@ -12,6 +16,12 @@
 
   <node name="visual_altimeter" pkg="visual_altimeter" type="visual_altimeter">
     <remap from="~altitude" to="altitude"/>
+  </node>
+
+  <node name="stereo_odometer" pkg="viso2_ros" type="stereo_odometer">
+    <remap from="stereo" to="stereo_down" />
+    <remap from="image" to="image_rect" />
+    <remap from="~odometry" to="odometry" />
   </node>
 
 </launch>

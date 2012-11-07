@@ -16,4 +16,10 @@
     <remap from="~depth_request" to="depth_request" />
   </node>
 
+  <node pkg="auv_control" type="twist_controller.py" name="twist_controller" output="screen">
+    <remap from="~wrench_output" to="wrench_request"/>
+    <remap from="~twist_request" to="twist_request" />
+  </node>
+
+
 </launch>
