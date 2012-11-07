@@ -1,0 +1,16 @@
+<!-- launch in stereo camera namespace -->
+
+<launch>
+  <arg name="manager" value="/manager" />
+  <arg name="standalone" value="false" />
+
+  <arg name="nodelet_args" if="standalone" value="standalone pcl/VoxelGrid" />
+  <arg name="nodelet_args" unless="standalone" value="load pcl/VoxelGrid $(arg manager)" />
+    <node pkg="nodelet" type="nodelet" name="pcl_voxel_grid" output="screen"
+          args="$(nodelet_args)">
+      <remap from="~input" to="points2" />
+      <remap from="~output" to="points2_reduced" />
+      <param name="leaf_size" value="0.05" />
+    </node>
+</launch>
+

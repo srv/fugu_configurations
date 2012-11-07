@@ -1,0 +1,31 @@
+<launch>
+
+  <!-- 
+    To use the PS3 Dualshock3 Sixpair joystick, run as root
+      rosrun ps3joy ps3joy.py
+    You need to pair the joystick with your bluetooth system once.
+    Follow the instructions on the ROS package ps3joy wiki page
+      http://www.ros.org/wiki/ps3joy
+  -->
+
+  <!-- joy node -->
+  <node pkg="joy" type="joy_node" name="joy_node" output="screen">
+    <rosparam file="$(find fugu_configurations)/joystick/params.yaml" />
+  </node>
+  
+  <!-- teleoperation_joy node -->
+  <node pkg="auv_teleoperation" type="teleoperation_joy_node" 
+        name="fugu_teleoperation" output="screen">
+    <rosparam file="$(find fugu_configurations)/auv_framework/teleoperation_params.yaml" />
+    <!-- remap direct control topics to root namespace -->
+    <remap from="~motor_policy/motor_levels" to="motor_levels"/>
+    <remap from="~wrench_policy/wrench" to="wrench_request"/>
+    <remap from="~twist_policy/twist" to="twist"/>
+    <remap from="~altitude_control_wrench_policy/altitude_request" to="altitude_request"/>
+    <remap from="~depth_control_wrench_policy/depth_request" to="depth_request"/>
+    <remap from="enable_altitude_control" to="altitude_controller/enable"/>
+    <remap from="enable_depth_control" to="depth_controller/enable"/>
+    <remap from="enable_twist_control" to="twist_controller/enable"/>
+  </node>
+
+</launch>

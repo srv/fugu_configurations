@@ -25,3 +25,5 @@ src/*/CMakeFiles/
 
 # Other files
 src/memsense_imu/
+
+*~

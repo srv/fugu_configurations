@@ -1,0 +1,9 @@
+---
+name: fugu_comp_standard
+tam:
+  rows: 4
+  cols: 6
+  data: [+1e4,  0,    0,    0, 0, -1e4, 
+         +1e4,  0,    0,    0, 0, +1e4, 
+            0,  0, +1e4, +1e4, 0,    0, 
+            0,  0, +1e4, -1e4, 0,    0]

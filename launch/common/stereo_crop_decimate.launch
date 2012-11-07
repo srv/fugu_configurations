@@ -1,0 +1,28 @@
+<launch>
+  
+  <arg name="manager" default="manager" />
+  <arg name="standalone" default="false" />
+
+  <!-- roslaunch ignores ROS_NAMESPACE environment variable and __ns command line remapping -->
+  <arg name="stereo" />
+
+  <arg name="nodelet_args" if="$(arg standalone)" value="standalone image_proc_custom/crop_decimate" />
+  <arg name="nodelet_args" unless="$(arg standalone)" value="load image_proc_custom/crop_decimate $(arg manager)" />
+  
+  <node pkg="nodelet" type="nodelet" name="image_proc_decimate_left" ns="$(arg stereo)" output="screen"
+        args="$(arg nodelet_args)" >
+    <param name="decimation_x" value="2" />
+    <param name="decimation_y" value="2" />
+    <remap from="camera" to="left" /> 
+    <remap from="camera_out" to="scaled/left"/>
+  </node>
+
+  <node pkg="nodelet" type="nodelet" name="image_proc_decimate_right" ns="$(arg stereo)" output="screen"
+        args="$(arg nodelet_args)" >
+    <param name="decimation_x" value="2" />
+    <param name="decimation_y" value="2" />
+    <remap from="camera" to="right" /> 
+    <remap from="camera_out" to="scaled/right"/>
+  </node>
+
+</launch>

@@ -1,0 +1,7 @@
+<launch>
+
+  <machine name="station" address="portatil.local" user="usuari" 
+    ros-root="/opt/ros/diamondback/ros/" 
+    ros-package-path="/home/user/ros:/opt/ros/diamondback/stacks" />
+
+</launch>

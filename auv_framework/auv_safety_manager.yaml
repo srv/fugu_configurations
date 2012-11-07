@@ -1,0 +1,15 @@
+topic_monitors:
+  - topic: /depth
+    min_frequency: 1
+    field_monitors:
+      - field: depth
+        max_value: 4.5
+  - topic: /altitude
+    field_monitors:
+      - field: range
+        min_value: 0.4
+  - topic: /humidity
+    min_frequency: 1
+    field_monitors:
+      - field: humidity
+        max_value: 500

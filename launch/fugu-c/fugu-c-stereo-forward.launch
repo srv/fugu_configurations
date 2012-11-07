@@ -1,0 +1,17 @@
+<launch>
+
+  <arg name="stereo_forward_base_topic" default="stereo_forward" />
+  <arg name="stereo_forward_camera_name" default="BB2_08S2C_38_0" />
+  <arg name="calibration" default="cylinder_water" />
+  <arg name="standalone" default="true" />
+  <arg name="camera_params" default="$(find fugu_configurations)/no_params.yaml" />
+
+  <include file="$(find fugu_configurations)/launch/common/stereo_camera.launch">
+    <arg name="camera" value="$(arg stereo_forward_camera_name)" />
+    <arg name="calibration" value="$(arg calibration)" />
+    <arg name="standalone" value="$(arg standalone)" />
+    <arg name="base_topic" value="$(arg stereo_forward_base_topic)" />
+    <arg name="camera_params" value="$(arg camera_params)" />
+  </include>
+  
+</launch>

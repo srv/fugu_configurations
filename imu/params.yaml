@@ -1,13 +1,12 @@
-accel_bias_x: 0.0
-accel_bias_y: 0.0
-accel_bias_z: 0.0
+accel_bias_x: -0.12908308
+accel_bias_y: -0.26098481
+accel_bias_z: +0.11597448
 accels_range: 19.620000000000001
 accels_var: 0.0
 filter_rate: 10.0
-frame_id: imu
-gyro_bias_x: 0.00895
-gyro_bias_y: 0.01662
-gyro_bias_z: -0.002945
+gyro_bias_x: +0.01590629
+gyro_bias_y: -0.001886940
+gyro_bias_z: -0.012579289
 gyros_range: 2.617993877991494
 gyros_var: 0.0
 imu_type: nIMU_3temp
@@ -16,4 +15,5 @@ mag_bias_y: 0.0
 mag_bias_z: 0.0
 mags_range: 1.8999999999999999
 mags_var: 0.0
+polling_rate: 150.00
 serial_port: /dev/ttyUSB0

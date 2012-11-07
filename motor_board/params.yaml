@@ -1,0 +1,39 @@
+rate_speeds: 10.0
+rate_status: 1.0
+rate_pressure: 10.0
+rate_humidity: 10.0
+
+serial_port: /dev/ttyS0
+
+pressure_offset: 0
+waterin_offset: 0
+
+downward_left_PID_Kd: 0.0
+downward_left_PID_Ki: 0.10000000000000001
+downward_left_PID_Kp: 0.5
+downward_left_PID_on: true
+downward_left_accel: 5
+downward_left_invert: false
+
+downward_right_PID_Kd: 0.0
+downward_right_PID_Ki: 0.10000000000000001
+downward_right_PID_Kp: 0.5
+downward_right_PID_on: true
+downward_right_accel: 5
+downward_right_invert: true
+
+forward_left_PID_Kd: 0.0
+forward_left_PID_Ki: 0.10000000000000001
+forward_left_PID_Kp: 0.5
+forward_left_PID_on: true
+forward_left_accel: 5
+forward_left_invert: false
+
+forward_right_PID_Kd: 0.0
+forward_right_PID_Ki: 0.10000000000000001
+forward_right_PID_Kp: 0.5
+forward_right_PID_on: true
+forward_right_accel: 5
+forward_right_invert: true
+
+saturation_value: 20

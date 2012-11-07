@@ -1,0 +1,20 @@
+altitude_controller:
+  Kp: 1.2
+  Ki: 0.0
+  Kd: 0.6
+  Kf: 0.11
+
+depth_controller:
+  Kp: 1.2
+  Ki: 0.0
+  Kd: 0.6
+  Kf: 0.11
+
+thruster_allocator:
+  thruster_allocation_matrix:
+    rows: 4
+    cols: 6
+    data: [+1e4,  0,    0,    0, 0, -1e4, 
+          +1e4,  0,    0,    0, 0, +1e4, 
+              0,  0, +1e4, +1e4, 0,    0, 
+              0,  0, +1e4, -1e4, 0,    0]

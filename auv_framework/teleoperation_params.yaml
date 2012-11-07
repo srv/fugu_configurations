@@ -1,0 +1,62 @@
+pause_button: 3
+policy_button: 0
+
+motor_policy:
+  #                              X       Y       Z       R       P       Y
+  joy_axes:                [     1,     -1,      3,      2,     -1,      0]
+  positive_offset_buttons: [     4,     -1,     12,     13,     -1,      5]
+  negative_offset_buttons: [     6,     -1,     14,     15,     -1,      7]
+  offset_reset_buttons:    [    10,     -1,     11,      9,     -1,      8]
+  joy_axes_factors:        [ 100.0,  100.0,  100.0, -100.0,  100.0, -100.0]
+  offset_steps:            [  10.0,   10.0,   10.0,   10.0,   10.0,   10.0]
+
+  # one row for every motor translating requested forces in
+  # each DOF to motor speeds
+  axes_to_motors: 
+  #      X+    X-    Y+    Y-    Z+    Z-    R+    R-    P+    P-    Y+    Y-
+    [  1.0, -1.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  1.0, -1.0, # Motor 1
+       1.0, -1.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0, -1.0,  1.0, # Motor 2
+       0.0,  0.0,  0.0,  0.0,  1.0, -1.0,  1.0, -1.0,  0.0,  0.0,  0.0,  0.0, # Motor 3
+       0.0,  0.0,  0.0,  0.0,  1.0, -1.0, -1.0,  1.0,  0.0,  0.0,  0.0,  0.0  # Motor 4 
+    ]
+
+wrench_policy:
+  #                              X       Y       Z       R       P       Y
+  joy_axes:                [     1,     -1,      3,      2,     -1,      0]
+  positive_offset_buttons: [     4,     -1,     12,     13,     -1,      5]
+  negative_offset_buttons: [     6,     -1,     14,     15,     -1,      7]
+  offset_reset_buttons:    [    10,     -1,     11,      9,     -1,      8]
+  joy_axes_factors:        [   1.0,    1.0,    1.0,   -1.0,    1.0,   -1.0]
+  offset_steps:            [   0.1,    0.1,    0.1,    0.1,    0.1,    0.1]
+
+
+twist_policy:
+  #                              X       Y       Z       R       P       Y
+  joy_axes:                [     1,     -1,      3,      2,     -1,      0]
+  positive_offset_buttons: [     4,     -1,     12,     13,     -1,      5]
+  negative_offset_buttons: [     6,     -1,     14,     15,     -1,      7]
+  offset_reset_buttons:    [    10,     -1,     11,      9,     -1,      8]
+  joy_axes_factors:        [   1.0,    1.0,    1.0,   -1.0,    1.0,   -1.0]
+  offset_steps:            [   0.1,    0.1,    0.1,    0.1,    0.1,    0.1]
+
+altitude_control_wrench_policy:
+  # Here the third DOF is altitude instead of Z
+  #                              X       Y       A       R       P       Y
+  joy_axes:                [     1,     -1,     -1,      2,     -1,      0]
+  positive_offset_buttons: [     4,     -1,     12,     13,     -1,      5]
+  negative_offset_buttons: [     6,     -1,     14,     15,     -1,      7]
+  offset_reset_buttons:    [    10,     -1,     11,      9,     -1,      8]
+  joy_axes_factors:        [   1.0,    1.0,    0.0,   -1.0,    1.0,   -1.0]
+  offset_steps:            [   0.1,    0.1,    0.1,    0.1,    0.1,    0.1]
+
+
+depth_control_wrench_policy:
+  # Here the third DOF is depth instead of Z
+  #                              X       Y       D       R       P       Y
+  joy_axes:                [     1,     -1,     -1,      2,     -1,      0]
+  positive_offset_buttons: [     4,     -1,     12,     13,     -1,      5]
+  negative_offset_buttons: [     6,     -1,     14,     15,     -1,      7]
+  offset_reset_buttons:    [    10,     -1,     11,      9,     -1,      8]
+  joy_axes_factors:        [   1.0,    1.0,    0.0,   -1.0,    1.0,   -1.0]
+  offset_steps:            [   0.1,    0.1,    0.1,    0.1,    0.1,    0.1]
+

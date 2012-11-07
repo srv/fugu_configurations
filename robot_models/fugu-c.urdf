@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<robot name="fugu-c">
+
+<!-- LINKS -->
+
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <cylinder length="0.208" radius="0.106"/>
+      </geometry>
+      <material name="cylinder">
+        <color rgba="1 1 1 0.3"/>
+      </material>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+    </visual>
+  </link>
+
+  <link name="stereo_down">
+    <visual>
+      <geometry>
+        <box size="0.0474 0.157 0.036"/>
+      </geometry>
+      <material name="camera">
+        <color rgba="0.78 0.58 0 1.0"/>
+      </material>
+      <origin rpy="0 0 0" xyz="-0.0237 0 0"/>
+    </visual>
+  </link>
+
+  <link name="stereo_down_optical">
+    <visual>
+      <geometry>
+        <cylinder length="0.002" radius="0.009"/>
+      </geometry>
+      <material name="camera_optics">
+        <color rgba="0 0 0 1"/>
+      </material>
+   </visual>
+  </link>
+
+  <link name="stereo_forward">
+    <visual>
+      <geometry>
+        <box size="0.0474 0.157 0.036"/>
+      </geometry>
+      <material name="camera">
+        <color rgba="0.78 0.58 0 1.0"/>
+      </material>
+      <origin rpy="0 0 0" xyz="-0.0237 0 0"/>
+    </visual>
+  </link>
+
+  <link name="stereo_forward_optical">
+    <visual>
+      <geometry>
+        <cylinder length="0.002" radius="0.009"/>
+      </geometry>
+      <material name="camera_optics">
+        <color rgba="0 0 0 1"/>
+      </material>
+   </visual>
+  </link>
+
+
+<!-- JOINTS (TRANSFORMATIONS) -->
+
+  <joint name="base_link_to_stereo_down" type="fixed">
+    <parent link="base_link"/>
+    <child link="stereo_down"/>
+    <origin xyz="0 0 0.095" rpy="0 -1.5708 0"/>
+  </joint>
+
+  <joint name="stereo_down_to_stereo_down_optical" type="fixed">
+    <parent link="stereo_down"/>
+    <child link="stereo_down_optical"/>
+    <origin xyz="0 0.06 0" rpy="-1.5708 0 -1.5708"/>
+  </joint>
+
+  <joint name="base_link_to_stereo_forward" type="fixed">
+    <parent link="base_link"/>
+    <child link="stereo_forward"/>
+    <origin xyz="0.094 0 0" rpy="3.1416 0 0"/>
+  </joint>
+
+  <joint name="stereo_forward_to_stereo_forward_optical" type="fixed">
+    <parent link="stereo_forward"/>
+    <child link="stereo_forward_optical"/>
+    <origin xyz="0 0.06 0" rpy="-1.5708 0 -1.5708"/>
+  </joint>
+
+</robot>
+
