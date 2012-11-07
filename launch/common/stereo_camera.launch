@@ -3,7 +3,7 @@
   <!-- the camera parameters and calibration files are 
        selected according to the arguments -->
 
-  <!-- defines which camera to use. examples:
+  <!-- arg camera: defines which camera to use. examples:
         - BB2_08S2C_38_0
         - BB2_08S2C_38_1
         - BB2_08S2C_25_0
@@ -11,7 +11,7 @@
   -->
   <arg name="camera" />
 
-  <!-- defines the calibration of the camera, used to
+  <!-- arg calibration: defines the calibration of the camera, used to
        find the right files. examples:
         - boxed_air
         - boxed_water
@@ -53,8 +53,5 @@
       <remap from="stereo_camera" to="$(arg base_topic)" />
     </node>
   </group>
-
-  <node name="$(anon static_tf_publisher)" pkg="tf" type="static_transform_publisher" args="0 0.06 0 -1.57 0 -1.57 $(arg base_topic) $(arg base_topic)_optical 100">
-  </node>
 
 </launch>
