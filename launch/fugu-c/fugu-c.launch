@@ -23,7 +23,7 @@
   </node>
 
   <node pkg="auv_control" type="auv_safety_manager.py" name="auv_safety_manager" output="screen">
-    <rosparam file="$(find fugu_configurations)/auv_control/auv_safety_manager.yaml" />
+    <rosparam file="$(find fugu_configurations)/auv_framework/auv_safety_manager.yaml" />
   </node>
 
 </launch>
