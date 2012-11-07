@@ -1,26 +1,25 @@
 <launch>
 
-  <rosparam file="$(find fugu_configurations)/auv_control/control_params.yaml" />
+  <rosparam file="$(find fugu_configurations)/auv_framework/control_params.yaml" />
 
   <node pkg="auv_control" type="thruster_allocator.py" name="thruster_allocator" output="screen" />
 
   <node pkg="auv_control" type="altitude_controller.py" name="altitude_controller" output="screen">
     <remap from="~wrench_output" to="wrench_request"/>
-    <remap from="~wrench_input" to="fugu_teleoperation/altitude_control_wrench_policy/wrench_request" />
+    <remap from="~wrench_input" to="fugu_teleoperation/altitude_control_wrench_policy/wrench" />
     <remap from="~altitude_request" to="altitude_request" />
   </node>
 
   <node pkg="auv_control" type="depth_controller.py" name="depth_controller" output="screen">
     <remap from="~wrench_output" to="wrench_request"/>
-    <remap from="~wrench_input" to="fugu_teleoperation/depth_control_wrench_policy/wrench_request" />
+    <remap from="~wrench_input" to="fugu_teleoperation/depth_control_wrench_policy/wrench" />
     <remap from="~depth_request" to="depth_request" />
   </node>
 
-  <node pkg="twist_control" type="twist_control_node" name="twist_control_node" output="screen" >
-    <param name="pid_info_url" value="$(find fugu_configurations)/auv_control/twist_controller.yaml" />
-    <param name="pid_name" value="twist_PID" />
-    <param name="pid_response_hz" value="10.0" />
-    <remap from="set_info" to="set_twist_pid_info" />
+  <node pkg="auv_control" type="twist_controller.py" name="twist_controller" output="screen">
+    <remap from="~wrench_output" to="wrench_request"/>
+    <remap from="~twist_request" to="twist_request" />
   </node>
+
 
 </launch>
