@@ -16,10 +16,11 @@
 
   <node name="visual_altimeter" pkg="visual_altimeter" type="visual_altimeter">
     <remap from="~altitude" to="altitude"/>
+    <remap from="point_cloud" to="stereo_down/scaled/points2" />
   </node>
 
   <node name="stereo_odometer" pkg="viso2_ros" type="stereo_odometer">
-    <remap from="stereo" to="stereo_down" />
+    <remap from="stereo" to="stereo_down/scaled" />
     <remap from="image" to="image_rect" />
     <remap from="~odometry" to="odometry" />
   </node>
