@@ -16,7 +16,7 @@
 
   <node name="visual_altimeter" pkg="visual_altimeter" type="visual_altimeter">
     <remap from="~altitude" to="altitude"/>
-    <remap from="points2" to="stereo_down/scaled/points2" />
+    <remap from="point_cloud" to="stereo_down/scaled/points2" />
   </node>
 
   <node name="stereo_odometer" pkg="viso2_ros" type="stereo_odometer">
