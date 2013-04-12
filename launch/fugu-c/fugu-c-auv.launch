@@ -2,8 +2,6 @@
 
   <include file="$(find fugu_configurations)/launch/fugu-c/fugu-c.launch"/>
 
-  <include file="$(find fugu_configurations)/launch/fugu-c/control_pipeline.launch"/>
-
   <include file="$(find fugu_configurations)/launch/fugu-c/fugu-c-processing.launch"/>
 
 </launch>
