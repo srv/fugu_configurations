@@ -1,0 +1,7 @@
+<launch>
+
+  <include file="$(find fugu_configurations)/launch/fugu-c/fugu-c-processing.launch"/>
+  
+  <include file="$(find fugu_configurations)/launch/fugu-c/teleoperation.launch"/>
+
+</launch>

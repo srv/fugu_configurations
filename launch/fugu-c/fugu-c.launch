@@ -1,16 +1,33 @@
 <launch>
 
-  <!-- stereo cameras without pipeline -->
-  <arg name="with_pipeline" default="false"/>
+  <include file="$(find fugu_configurations)/launch/fugu-c/fugu-c-stereo-down.launch"/>
+  <include file="$(find fugu_configurations)/launch/fugu-c/fugu-c-stereo-forward.launch"/>
 
-  <include file="$(find fugu_configurations)/launch/fugu-c/fugu-c-cameras.launch">
-    <arg name="with_pipeline" value="$(arg with_pipeline)" /> 
-  </include>
+  <include file="$(find fugu_configurations)/launch/fugu-c/fugu-c-model.launch"/>
 
-  <!-- motor_board, imu and thruster_allocation -->  
-  <include file="$(find fugu_configurations)/launch/fugu-c/fugu-c-navigation.launch"/>
+  <include file="$(find fugu_configurations)/launch/fugu-c/control_pipeline.launch"/>
 
-  <!-- to check humidity and stop everyting if there is any -->  
-  <include file="$(find fugu_configurations)/launch/common/alarm.launch"/>
+  <node pkg="albatros_motor_board" type="motor_board_node" name="motor_board_node" output="screen" >
+    <rosparam file="$(find fugu_configurations)/motor_board/params.yaml" />
+  </node>
+
+  <node pkg="albatros_motor_board" type="pressure_to_depth.py" name="pressure_to_depth" output="screen">
+    <param name="offset" value="0.0"/>
+  </node>
+
+  <node pkg="memsense_imu" type="imu_node" name="imu_node" output="screen">
+    <rosparam file="$(find fugu_configurations)/imu/params.yaml" />
+    <param name="frame_id" value="imu" />
+  </node>
+
+  <node pkg="alarm" type="alarm" name="emergency_alarm_node" output="screen">
+    <param name="tolerance" value="1500" type="int" />
+    <param name="status_publish_frequency" value="0.5" />
+    <param name="actions" value="`echo $HOME`/waterinmonitor/init/waterinactions.sh" />
+  </node>
+
+  <node pkg="auv_control" type="auv_safety_manager.py" name="auv_safety_manager" output="screen">
+    <rosparam file="$(find fugu_configurations)/auv_framework/auv_safety_manager.yaml" />
+  </node>
 
 </launch>

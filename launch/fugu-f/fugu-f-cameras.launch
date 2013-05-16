@@ -1,7 +1,0 @@
-<launch>
-
-  <include file="$(find fugu_configurations)/launch/fugu-f/fugu-f-stereo-forward.launch"/>
-  
-  <include file="$(find fugu_configurations)/launch/fugu-f/fugu-f-stereo-down.launch"/>
-  
-</launch>

@@ -1,0 +1,11 @@
+topic_monitors:
+  - topic: /depth
+    min_frequency: 1
+    field_monitors:
+      - field: depth
+        max_value: 4.5
+  - topic: /humidity
+    min_frequency: 1
+    field_monitors:
+      - field: humidity
+        max_value: 500
