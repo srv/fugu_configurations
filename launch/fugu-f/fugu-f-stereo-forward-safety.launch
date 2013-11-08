@@ -1,8 +1,9 @@
 <launch>
-
+  <arg name="calibration" default="boxed_water"/>
   <!-- launch cameras with image processing pipelines -->
-  <include file="$(find fugu_configurations)/launch/fugu-f/fugu-f-stereo-forward.launch"/>
-  <include file="$(find fugu_configurations)/launch/fugu-f/fugu-f-stereo-down.launch"/>
+  <include file="$(find fugu_configurations)/launch/fugu-f/fugu-f-stereo-forward.launch">
+    <arg name="calibration" value="$(arg calibration)"/>
+  </include>
 
   <node pkg="albatros_motor_board" type="motor_board_node" name="motor_board_node" output="screen" >
     <rosparam file="$(find fugu_configurations)/motor_board/params.yaml" />
