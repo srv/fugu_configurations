@@ -1,0 +1,14 @@
+<package>
+
+  <name>fugu_configurations</name>
+  <version>1.0.0</version>
+  <description>Package for feature extraction and matching</description>
+  <author>Francesc Bonnin, Miquel Massot, Stephan Wirth and Joan Pau Beltran</author>
+  <maintainer email="pl.negre@uib.cat">Pep Lluis Negre</maintainer>
+  <license>GPL</license>
+  <url type="website">http://ros.org/wiki/fugu_configurations</url>
+  <url type="bugtracker">https://github.com/srv/fugu_configurations/issues</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  
+</package>
