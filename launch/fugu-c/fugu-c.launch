@@ -19,8 +19,7 @@
   </node>
 
   <node pkg="nmea_gps_driver" type="nmea_gps_driver.py" name="gps_node" output="screen">
-    <param name="port" value="/dev/ttyUSB0" />
-    <param name="baud" value="38400" />
+    <rosparam file="$(find fugu_configurations)/gps/params.yaml" />
   </node>
 
   <node pkg="alarm" type="alarm" name="emergency_alarm_node" output="screen">
