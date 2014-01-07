@@ -16,7 +16,7 @@ angular_y_offset_step: 0.0
 angular_y_factor: 0.0
 
 angular_z_offset_step: 0.1
-angular_z_factor: -0.75
+angular_z_factor: -0.2
 
 pause_button: 3
 

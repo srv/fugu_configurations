@@ -17,7 +17,7 @@ ang_y_step: 0.0
 ang_y_factor: 0.0
 
 ang_z_step: 0.1
-ang_z_factor: -0.75
+ang_z_factor: -0.2
 
 
 pause_bttn: 3
