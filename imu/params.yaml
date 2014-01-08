@@ -16,4 +16,4 @@ mag_bias_z: 0.0
 mags_range: 1.8999999999999999
 mags_var: 0.0
 polling_rate: 150.00
-serial_port: /dev/ttyUSB0
+serial_port: /dev/ttyUSB1
