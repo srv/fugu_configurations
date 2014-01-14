@@ -10,7 +10,7 @@
   </node>
 
   <node pkg="albatros_motor_board" type="pressure_to_depth.py" name="pressure_to_depth" output="screen">
-    <param name="offset" value="-0.55"/>
+    <param name="offset" value="0.0"/>
   </node>
 
   <node pkg="memsense_imu" type="imu_node" name="imu_node" output="screen">
@@ -18,11 +18,11 @@
     <param name="frame_id" value="imu" />
   </node>
 
-  <group ns="gps">
+  <!--group ns="gps">
     <node pkg="nmea_gps_driver" type="nmea_gps_driver.py" name="gps_node" output="screen">
       <rosparam file="$(find fugu_configurations)/gps/params.yaml" />
     </node>
-  </group>
+  </group-->
 
   <node pkg="alarm" type="alarm" name="emergency_alarm_node" output="screen">
     <param name="tolerance" value="1500" type="int" />
