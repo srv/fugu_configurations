@@ -7,7 +7,7 @@ motor_policy:
   positive_offset_buttons: [     4,     -1,     12,     13,     -1,      5]
   negative_offset_buttons: [     6,     -1,     14,     15,     -1,      7]
   offset_reset_buttons:    [    10,     -1,     11,      9,     -1,      8]
-  joy_axes_factors:        [ 100.0,  100.0,  100.0, -100.0,  100.0, -100.0]
+  joy_axes_factors:        [ 100.0,  100.0,  100.0, -100.0,  100.0, -25.0]
   offset_steps:            [  10.0,   10.0,   10.0,   10.0,   10.0,   10.0]
 
   # one row for every motor translating requested forces in
@@ -26,7 +26,7 @@ wrench_policy:
   positive_offset_buttons: [     4,     -1,     12,     13,     -1,      5]
   negative_offset_buttons: [     6,     -1,     14,     15,     -1,      7]
   offset_reset_buttons:    [    10,     -1,     11,      9,     -1,      8]
-  joy_axes_factors:        [   1.0,    1.0,    1.0,   -1.0,    1.0,   -1.0]
+  joy_axes_factors:        [   1.0,    1.0,    1.0,   -1.0,    1.0,   -0.25]
   offset_steps:            [   0.1,    0.1,    0.1,    0.1,    0.1,    0.1]
 
 
@@ -36,7 +36,7 @@ twist_policy:
   positive_offset_buttons: [     4,     -1,     12,     13,     -1,      5]
   negative_offset_buttons: [     6,     -1,     14,     15,     -1,      7]
   offset_reset_buttons:    [    10,     -1,     11,      9,     -1,      8]
-  joy_axes_factors:        [   1.0,    1.0,    1.0,   -1.0,    1.0,   -1.0]
+  joy_axes_factors:        [   1.0,    1.0,    1.0,   -1.0,    1.0,   -0.25]
   offset_steps:            [   0.1,    0.1,    0.1,    0.1,    0.1,    0.1]
 
 altitude_control_wrench_policy:
@@ -46,7 +46,7 @@ altitude_control_wrench_policy:
   positive_offset_buttons: [     4,     -1,     12,     13,     -1,      5]
   negative_offset_buttons: [     6,     -1,     14,     15,     -1,      7]
   offset_reset_buttons:    [    10,     -1,     11,      9,     -1,      8]
-  joy_axes_factors:        [   1.0,    1.0,    0.0,   -1.0,    1.0,   -1.0]
+  joy_axes_factors:        [   1.0,    1.0,    0.0,   -1.0,    1.0,   -0.25]
   offset_steps:            [   0.1,    0.1,    0.1,    0.1,    0.1,    0.1]
 
 
@@ -57,6 +57,6 @@ depth_control_wrench_policy:
   positive_offset_buttons: [     4,     -1,     12,     13,     -1,      5]
   negative_offset_buttons: [     6,     -1,     14,     15,     -1,      7]
   offset_reset_buttons:    [    10,     -1,     11,      9,     -1,      8]
-  joy_axes_factors:        [   1.0,    1.0,    0.0,   -1.0,    1.0,   -1.0]
+  joy_axes_factors:        [   1.0,    1.0,    0.0,   -1.0,    1.0,   -0.25]
   offset_steps:            [   0.1,    0.1,    0.1,    0.1,    0.1,    0.1]
 
